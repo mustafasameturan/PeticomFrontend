@@ -1,0 +1,182 @@
+
+
+
+.login-section{
+    height: 70vh;
+    background-color:rgba(255, 121, 46, .5);
+    width: 25%;
+    border-radius: 35px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+   
+}
+
+.login-text{
+    padding-top:2rem;
+    color: white;
+    font-size: 40px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.login-text::after{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 1rem;
+    background-color: rgba(0, 0, 0, .5);
+    content: "";
+    height: 1px;
+    width: 400px;
+    display: block;
+}
+
+@media (max-width:1597px){
+    .login-text::after{
+        display: none;
+    }
+}
+
+@media (max-width:1440px){
+    .login-section{
+        width: 35%;
+    }
+}
+
+@media (max-width:1200px){
+    .login-section{
+        width: 45%;
+    }
+}
+
+@media (max-width:1920px){
+    .login-section{
+        width: 30%;
+    }
+}
+
+@media (max-width:1019px){
+    .forgot-password-text a{
+        margin-right: 3rem!important;
+    }
+}
+
+@media (max-width:775px){
+    .login-section{
+        width: 55%;
+    }
+}
+
+@media (max-width:635px){
+    .login-section{
+        width: 70%;
+    }
+}
+
+@media (max-width:450px){
+    .login-section{
+        width: 85%;
+        height: 75vh;
+        margin-top: 3rem;
+    }
+    
+}
+
+@media (max-width:380px){
+    .login-section{
+        width: 90%;
+        height: 90vh;
+        margin-top: 2rem;
+    }
+    
+}
+
+.login-inputarea{
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.login-inputarea .email{
+    margin: 0 0 1.2rem 0;
+}
+
+.email h3{
+    margin-left:-14rem;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.password h3{
+    margin-left: -14rem;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.inputmail-pass{
+border-radius: 50px;
+width: 20rem;
+outline: none;
+padding-left: 25px;
+font-size: 1.2rem;
+height: 2.2rem;
+}
+
+.login-button{
+    margin-top: 2rem;
+    background-color: white !important;
+    border-radius: 50px;
+    width: 8rem;
+    font-size: 20px;
+    height: 2.3rem;
+}
+
+.forgot-password-text{
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.forgot-password-text a{
+    font-size: small;
+}
+
+.or{
+    margin-top: 1.5rem;
+    align-items: center;
+    display: flex;
+    font-weight: 500;
+    gap: 20px;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.or::before{
+    background-color: black;
+    content: "";
+    height: 1px;
+    width: 150px;
+}
+
+.or::after{
+    background-color: black;
+    content: "";
+    height: 1px;
+    width: 150px;
+}
+
+.google-signup-icon{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.1rem;
+}
+
+/* .google-signup-icon .pic{
+    height: 75px;
+    width: 75px;
+} */
+
+.loginpage-signup-link{
+    margin-top: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+}
+

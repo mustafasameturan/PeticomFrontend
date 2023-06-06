@@ -1,0 +1,68 @@
+html{
+    box-sizing: border-box;
+    font-family: 'Comme', sans-serif;
+}
+
+.def-nav-main{
+    background-color: rgba(255, 121, 46, .5)
+}
+
+.logo{
+    color: white;
+    height: 5rem;
+}
+
+.button{
+    background-color: #F3F3F3;
+    font-size: 1.2rem;
+    padding: 1rem 0 1rem 0;
+     
+}
+
+.button.left{
+    border-radius: 50px 0 0 50px;
+    padding-left: 2rem;
+    padding-right: 1rem;
+    margin-right: -5px;
+}
+
+.button.right{
+    border-radius: 0 50px 50px 0;
+    padding-right: 2rem;
+    padding-left: 1rem;
+}
+
+.user-pic{
+    display:none;
+}
+
+@media (max-width: 768px){
+    /* .r-multi-button{
+        justify-self: flex-end;
+    } */
+
+    /* .m-nav{
+        justify-content: center;  
+    } */
+
+    .button.left{
+        display: none;
+    }
+    .button.right{
+        display: none;
+    }
+
+    .user-pic{
+        display: block;
+    }
+
+    .brand{
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+.brand.login{
+    margin-right: auto;
+    margin-left: auto;
+}

@@ -1,0 +1,49 @@
+.dropdown.city select{
+    border-radius: 50px;
+    font-size: 1.5rem;
+    padding: 0.5rem 3rem 0.5rem 2rem;
+    appearance:none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    background-image: url(../assets/caret-down-solid.svg); 
+    background-repeat: no-repeat;
+    background-position:right 0.8rem top;
+    /* padding-right: 20px;  */
+    border: none;
+    overflow: hidden;
+    outline: none;
+}
+
+.searcharea{
+    margin-left: 5rem;
+    
+}
+
+.searcharea from{
+    overflow: hidden;
+}
+.searcharea form input{
+    border-radius: 25px 0 0 25px;
+    padding: 0.5rem 30rem 0.5rem 2rem;
+    font-size: 1.5rem;    
+    outline: none;
+}
+
+.searchbutton{
+    background-color: white;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    font-size: 1.5rem;
+    border-radius: 0 25px 25px 0;
+    margin-left: -4px;
+    
+}
+
+.searchbutton i:hover{
+    color: #FF813A;
+    transition: .5s;
+}
+
+
+
+
+

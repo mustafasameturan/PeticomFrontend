@@ -1,0 +1,25 @@
+.select-application select{
+    border-radius: 50px;
+    width: 20rem;
+    outline: none;
+    padding-left: 25px;
+    font-size: 1.2rem;
+    height: 2.2rem;
+    appearance:none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    background-image: url(../svg/others/caret-down-solid.svg); 
+    background-repeat: no-repeat;
+    background-position:right 0.8rem top;
+    padding-right: 20px; 
+    border: none;
+    overflow: hidden;
+    outline: none;
+}
+
+.application-section{
+    background-color:rgba(255, 121, 46, .5);
+    text-align: center;
+    height: 68vh;
+    border-radius: 35px;
+}
