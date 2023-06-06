@@ -1,0 +1,149 @@
+.resultdetail{
+    border-radius: 114px;
+    border: 1px black solid;
+
+}
+
+.border-r-50{
+    border-radius: 50%;
+}
+.peticomer-name{
+    font-size:42px;
+    text-align: center;
+}
+
+.badge{
+    height: 48px;
+}
+
+.badges-detail{
+    gap: 3px;
+
+}
+.pets::before{
+    margin-top: 1rem;
+    background-color: rgba(0, 0, 0, .5);
+    content: "";
+    height: 1px;
+    width: 500px;
+    display: block;
+}
+
+.pets h1{
+    color:rgba(255, 121, 46, .8);
+    text-align: center;
+    font-size: 42px;
+
+}
+
+.peticomer-pets-pic img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.x{
+    border-right: 1px rgba(0, 0, 0, .5) solid;
+}
+
+.peticomer-bio{
+    height: 175px;
+}
+
+.peticomer-bio h2{
+    font-size: 25px;
+}
+
+.peticomer-bio p{
+    font-size: 20px;
+}
+
+.peticomer-home-pic h2{
+    font-size: 25px;
+}
+
+.peticomer-home-pic h2::after{
+    margin-top: 1rem;
+    background-color: rgba(0, 0, 0);
+    content: "";
+    height: 2px;
+    width: 125px;
+    display: block;
+    margin-top: 0px;
+}
+
+.peticomer-home-pics img{
+    height: 200px;
+}
+
+.review h2{
+    font-size: 25px;
+    padding-top: 16px;
+}
+
+.review h2::after{
+    margin-top: 1rem;
+    background-color: rgba(0, 0, 0);
+    content: "";
+    height: 2px;
+    width: 280px;
+    display: block;
+    margin-top: 0px;
+}
+
+.reviewer-name-star img{
+    width: 100px;
+}
+
+.review-continue button{
+    background-color: #FF813A;
+    color: white;
+    border-radius:25px;
+    padding: 4px 15px;
+}
+
+.review-continue{
+    position: absolute;
+    top: 750px;
+}
+
+.rezervation{
+    position:absolute;
+    /* rotate: -45deg; */
+    right: 194px;
+    bottom: 180px;
+}
+
+.price{
+    position: absolute;
+    right: 194px;
+    bottom: 700px;     
+}
+
+.rezervation button{
+    background-color: #FF813A;
+    color:white;
+    border-bottom-right-radius: 100px;
+    border-top-left-radius: 100px;
+    /* padding-bottom: 40px;  */
+    height: 100px;
+    font-size: 20px;
+    width: 273px;
+    font-weight:bold;
+}
+
+.price div{
+    background-color: #FF813A;
+    color:white;
+    border-bottom-left-radius: 100px;
+    border-top-right-radius: 100px;
+    height: 100px;
+    font-size: 20px;
+    width: 273px;
+    font-weight:bold;
+}
+
+
+
+
+

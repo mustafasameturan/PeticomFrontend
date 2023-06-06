@@ -1,0 +1,15 @@
+html{
+    box-sizing: border-box;
+    font-family: 'Comme', sans-serif;
+}
+
+
+.pic{
+    z-index: -1;
+    width: 100%;
+    top: -10rem;
+}
+.mainpic{
+    height: 100vh;
+    width: 100%;
+}

@@ -1,0 +1,158 @@
+.signupsection{
+    background-color:rgba(255, 121, 46, .5);
+    text-align: center;
+    height: 75vh;
+    border-radius: 35px;
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+
+#afterline{
+    padding-top:2rem;
+    color: white;
+    font-size: 40px;
+    font-weight: bolder;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#afterline::after{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 1rem;
+    background-color: rgba(0, 0, 0, .5);
+    content: "";
+    height: 1px;
+    width: 400px;
+    display: block;
+}
+
+#signupsections{
+    gap: 24rem;
+}
+
+.inputarea h3{
+    padding-left: 9.5rem;
+    font-size: 20px;
+    font-weight:500;
+    width: 500px;
+    text-align: start;
+}
+
+.input{
+border-radius: 50px;
+width: 20rem;
+outline: none;
+padding-left: 25px;
+font-size: 1.2rem;
+height: 2.2rem;
+}
+
+.bepeticomer-submit{
+    background-color: white;
+    border-radius: 50px;
+    width: 8rem;
+    font-size: 20px;
+    height: 2.3rem;
+}
+
+.termbox{
+    padding-left: 9.5rem;
+    text-align: start;
+}
+
+.signup-submit{
+    background-color: white;
+    border-radius: 50px;
+    width: 8rem;
+    font-size: 20px;
+    height: 2.3rem;
+}
+
+.or{
+    margin-top: .5rem;
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+
+}
+
+.or::before{
+    background-color: black;
+    content: "";
+    height: 1px;
+    width: 150px;
+}
+
+.or::after{
+    background-color: black;
+    content: "";
+    height: 1px;
+    width: 150px;
+}
+
+.google-signup-icon{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+
+}
+
+@media (max-width:1536px){
+    #signupsections{
+        gap: 18rem;
+    }
+    .inputarea h3{
+        padding-left: 7rem
+    }
+    .termbox{
+        padding-left: 7rem;
+    }
+    
+}
+
+@media (max-width:1280px){
+    #signupsections{
+        gap: 12rem;
+    }
+    .inputarea h3{
+        padding-left: 4.5rem
+    }
+    .termbox{
+        padding-left: 4.5rem;
+    }
+}
+
+@media (max-width:1024px){
+    #signupsections{
+        gap: 4rem;
+    }
+    .inputarea h3{
+        padding-left: 2.5rem
+    }
+    .termbox{
+        padding-left: 2.5rem;
+    }
+    #afterline::after{
+        display: none;
+    }
+}
+
+@media (max-width:768px){
+    .inputarea h3{
+        padding-left: 6.5rem
+    }
+    .termbox{
+        padding-left: 6.5rem;
+    }
+    #afterline::after{
+        display: block;
+    }
+    .signupsection{
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+

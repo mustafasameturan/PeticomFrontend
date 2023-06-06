@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.tooltip-top {
+    @apply hidden group-hover:block absolute duration-300 tooltip-top-content
+}
+
+.tooltip-top-content {
+    @apply absolute animate-fadeIn text-center bg-[#222222] text-white text-sm px-2 py-1 rounded z-20 max-w-max right-[-100px] left-[-100px] mx-auto -top-[38px] after:absolute after:-bottom-1 after:right-0 after:left-0 after:mx-auto after:w-[10px] after:h-[10px] after:bg-[#222222] after:rotate-45 font-thin
+}
