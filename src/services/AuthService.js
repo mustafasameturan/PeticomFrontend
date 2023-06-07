@@ -1,5 +1,15 @@
 import { apiRequest } from "./ApiRequest";
 
+export const LoginService = async (model) => {
+    const url = '/users/login';
+    const method = 'POST';
+    const payload = {
+        ...model
+    };
+
+    return await apiRequest(url, method, payload);
+}
+
 export const RegisterService = async (model) => {
 
     const url = '/users/register';

@@ -4,10 +4,16 @@ import { UserPicture } from '../assets/img';
 import '../assets/css/navbar.css';
 import { useNavigate } from 'react-router-dom';
 import { url } from "../routes/Utility";
+import useAuth from '../hooks/useAuth';
+import { useDispatch } from 'react-redux';
+import { userLogout } from '../store/UserSlice';
+
 
 const Navbar = () => {
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { token } = useAuth();
 
   return (
     <div className='def-nav-main h-28 '>
@@ -16,17 +22,25 @@ const Navbar = () => {
           <img src={PeticomLogo} className='logo' onClick={() => {navigate(url("home"))}} />
         </div>
         <div className='r-multi-button'>
-          <button onClick={() => navigate(url("auth.register"))}>
-            <div className='button left'>
-              <p className='hover:text-orange'>Kayıt Ol</p>
-            </div>
-          </button>
-          <button onClick={() => navigate(url("auth.login"))}>
-            <div className='button right'>
-              <p className='hover:text-orange'>Giriş Yap</p>
-            </div>
-          </button>          
-          <img src={UserPicture} className='user-pic '/>
+          {token ? (
+            <>
+              <img src={UserPicture} className=''/>
+            </>
+          ) : (
+            <>
+              <button onClick={() => navigate(url("auth.register"))}>
+                <div className='button left'>
+                  <p className='hover:text-orange'>Kayıt Ol</p>
+                </div>
+              </button>
+              <button onClick={() => navigate(url("auth.login"))}>
+                <div className='button right'>
+                  <p className='hover:text-orange'>Giriş Yap</p>
+                </div>
+              </button>          
+            </>
+          )}
+      
         </div>
       </div>
     </div>

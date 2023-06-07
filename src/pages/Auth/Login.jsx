@@ -4,13 +4,51 @@ import { GoogleIcon } from "../../assets/img";
 import { Input, Button } from "../../components";
 import { useNavigate } from "react-router-dom";
 import { url } from "../../routes/Utility";
+import { ToastDefault, ToastError, ToastInfo } from "../../components/Toastr";
+import { validateEmail } from "../../components/Utility";
+import { LoginService } from "../../services/AuthService";
+import { getCookie } from "ko-basic-cookie";
+import { cookieName } from "../../components/Constants";
+import { useDispatch } from "react-redux";
+import { userLogin } from "../../store/UserSlice";
 
 const Login = () => {
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const token = getCookie(cookieName) || false;
+
+  const submitHandle = async (e) => {
+    e.preventDefault();
+
+    if(email.length === 0 || password.length === 0){
+      ToastInfo("Lütfen tüm bilgileri eksiksiz giriniz!");
+    } else if(email.length !== 0 && !validateEmail(email)){
+      ToastInfo("E-Posta formatınız hatalı!");
+    }
+
+    const model = {
+      email: email,
+      password: password
+    };
+
+    const response = await LoginService(model);
+
+    if(response.statusCode === 200){
+      const token = response.data.token;
+
+      dispatch(userLogin({ token }));
+      navigate(url("home"));
+      ToastDefault("Giriş başarılı!");
+    } else {
+      ToastError("İşlem başarısız oldu!");
+    }
+  }
 
   return (
     <div className="container mx-auto">
@@ -18,14 +56,14 @@ const Login = () => {
         <div className="login-text">
           <h1>Giriş Yap</h1>
         </div>
-        <div className="login-inputarea">
+        <form onSubmit={submitHandle} className="login-inputarea">
           <div className="flex flex-col items-center justify-center px-[10px] pb-4">
             <label htmlFor="email" className='mr-[218px] mb-1 text-lg font-medium'>E-Posta</label>
             <Input
               id="email" 
               text="E-Posta"
               placeholder="E-Postanızı giriniz"
-              type="email"
+              type="text"
               setState={setEmail}
             />
           </div>
@@ -45,8 +83,9 @@ const Login = () => {
             type="submit"
             text="Giriş Yap"
             classnames="mt-2"
+            action={() => setLoading(loading => true)}
           />
-        </div>
+        </form>
         <div className="forgot-password-text hover:text-white">
           <button className="font-[20px]">Şifremi Unuttum</button>
         </div>
