@@ -1,0 +1,1 @@
+export const cookieName = process.env.REACT_APP_JWT_COOKIE_NAME;

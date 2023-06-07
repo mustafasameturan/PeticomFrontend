@@ -3,6 +3,7 @@ import '../../assets/css/resultdetail.css';
 import { CatPhoto, Picture1, Picture2 } from "../../assets/img";
 import { useNavigate } from "react-router-dom";
 import { url } from "../../routes/Utility";
+import useAuth from "../../hooks/useAuth";
 
 const AdDetail = () => {
  
@@ -11,7 +12,7 @@ const AdDetail = () => {
   return (
     <div className="container mx-auto">
       <div className="flex mt-8 mb-2 cursor-pointer items-center hover:text-orange" onClick={() => navigate(url("home.ad"))}>
-        <span class="material-symbols-outlined ">
+        <span className="material-symbols-outlined ">
             arrow_back
         </span>
         <h1 className="my-auto text-xl">Önceki İlanlar</h1>
