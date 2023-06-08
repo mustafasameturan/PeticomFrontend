@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom'
-import { Input, Button, Select } from "../../../components"
+import { Input, Button, Select } from "../../components"
 
-const BePeticomer = () => {
+const PeticomerApplication = () => {
 
     const staticCities = [
         { id: 6, name: "Ankara" },
@@ -73,4 +73,4 @@ const BePeticomer = () => {
         </div>
     )
 }
-export default BePeticomer
+export default PeticomerApplication

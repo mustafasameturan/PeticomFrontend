@@ -10,3 +10,23 @@
 .tooltip-top-content {
     @apply absolute animate-fadeIn text-center bg-[#222222] text-white text-sm px-2 py-1 rounded z-20 max-w-max right-[-100px] left-[-100px] mx-auto -top-[38px] after:absolute after:-bottom-1 after:right-0 after:left-0 after:mx-auto after:w-[10px] after:h-[10px] after:bg-[#222222] after:rotate-45 font-thin
 }
+
+.modal-overlay {
+    @apply fixed z-40 w-screen h-screen inset-0 bg-[#333333] bg-opacity-70
+}
+
+.modal {
+  @apply text-[13px] transition-transform duration-300 fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] px-2 bg-white rounded-[10px] space-y-5 drop-shadow-lg
+}
+
+.modal-content {
+  @apply !mx-4 !my-6
+}
+
+.modal-close-button {
+  @apply flex justify-center items-center fixed -right-3 -top-3 text-[16px] font-bold bg-gray-100 rounded-full w-8 h-8 border border-gray-200 shadow-md
+}
+
+body.active-modal {
+  @apply !overflow-y-hidden
+}
