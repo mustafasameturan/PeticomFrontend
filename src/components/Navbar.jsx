@@ -16,7 +16,7 @@ const Navbar = () => {
   const { token } = useAuth();
 
   return (
-    <div className='def-nav-main h-28 '>
+    <div className='def-nav-main h-28 sticky top-0'>
       <div className='container h-28 mx-auto px-4 flex items-center place-content-between m-nav'>
         <div className='brand'>
           <img src={PeticomLogo} className='logo' onClick={() => {navigate(url("home"))}} />

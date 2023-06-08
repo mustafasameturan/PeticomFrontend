@@ -10,6 +10,7 @@ html{
 .logo{
     color: white;
     height: 5rem;
+    cursor: pointer;
 }
 
 .button{
