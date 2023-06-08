@@ -34,7 +34,7 @@ const MainSearchBar = () => {
         </div>
         <div className="searcharea">
           <form action="search" method="get">
-            <input type="text" id="search" placeholder="Adresiniz girin..." />
+            <input type="text" id="search" placeholder="Ara..." />
             <button type="submit" className="searchbutton">
               <i className="fa-sharp fa-solid fa-magnifying-glass"></i>
             </button>

@@ -1,5 +1,5 @@
 import AuthLayout from "../pages/Auth/AuthLayout";
-import { Ad, AdDetail, Home, HomeLayout } from "../pages/Home";
+import { Ad, AdDetail, Home, HomeLayout, UserSettings } from "../pages/Home";
 import { Login, PeticomerApplication, Register, VerificateEmail } from "../pages/Auth";
 
 const routes = [
@@ -22,6 +22,11 @@ const routes = [
                 name: "detail",
                 path: "detail",
                 element: <AdDetail />
+            },
+            {
+                name: 'settings',
+                path: 'settings',
+                element: <UserSettings />
             }
         ]
     },

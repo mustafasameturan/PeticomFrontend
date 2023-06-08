@@ -1,0 +1,82 @@
+.settingsdetail{
+    height: 80vh;
+}
+.textname{
+    font-size:x-large;
+}
+
+.grid-rows-5 .row-span-1{
+    border-bottom: 1px solid #f2f2f2;
+}
+
+
+
+.bgdef{
+    background-color: #FFBC96;
+}
+
+.settingsleft{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.settingsright{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    /* height: 70vh; */
+    height: max-content;
+    /* border: 1px solid black; */
+}
+
+.UserSettingsButton{
+    background-color: black!important;
+    color: white;
+    transition: .2s;
+    border: 1px solid black;
+}
+
+.UserSettingsButton:hover{
+    
+    background-color: #f2f2f2!important;
+    color: black;
+    border: 1px solid black;
+}
+
+.petinfoselect select{
+    border-radius: 50px;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    width: 320px;
+    text-align: center;
+    height: 2.25rem;
+    appearance:none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    background-image: url(../svg/others/caret-down-solid.svg); 
+    background-repeat: no-repeat;
+    background-position:right 0.8rem top;
+    background-color:#fafaf9;
+    border: 1px solid #f2f2f2;
+    overflow: hidden;
+    outline: none;
+}
+    
+.settingrightsizes{
+    padding-left: 14rem;
+    padding-right: 14rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+@media  (max-width:1536px){
+    .settingrightsizes{
+        padding-left: 8rem;
+        padding-right: 8rem;
+    }
+    
+}
+
+@media (max-width:1280px){
+    .settingrightsizes{
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
