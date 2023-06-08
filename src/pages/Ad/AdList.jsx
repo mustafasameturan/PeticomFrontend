@@ -4,7 +4,7 @@ import { Cat, Dog, Handshake, NoneDog, SmokeFree } from '../../assets/svg'
 import { useNavigate } from 'react-router-dom'
 import { url } from '../../routes/Utility'
 
-const Ad = () => {
+const AdList = () => {
   
   const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ const Ad = () => {
                     <option value="111">En iyi sonuçlar</option>
                     <option value="112">Yeni Peticomerlar</option>
                     <option value="113">Adresime yakın olanlar</option>
-                    </select>
+                </select>
             </div>
         </div>
         <div className="resultbox grid grid-cols-3 gap-10 mx-9">
@@ -60,4 +60,4 @@ const Ad = () => {
   )
 }
 
-export default Ad
+export default AdList

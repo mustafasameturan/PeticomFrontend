@@ -1,6 +1,8 @@
 import AuthLayout from "../pages/Auth/AuthLayout";
-import { Ad, AdDetail, Home, HomeLayout, UserSettings } from "../pages/Home";
-import { Login, PeticomerApplication, Register, VerificateEmail } from "../pages/Auth";
+import { Home, HomeLayout } from "../pages/Home";
+import { Login, Register, VerificateEmail } from "../pages/Auth";
+import { AdLayout, AdList, AdDetail } from "../pages/Ad";
+import { PeticomerApplication, SettingsLayout, UserPetInfo, UserProfileSettings } from "../pages/Setting";
 
 const routes = [
     {
@@ -12,21 +14,6 @@ const routes = [
             {
                 index: true,
                 element: <Home />
-            },
-            {
-                name: "ad",
-                path: "ad",
-                element: <Ad />
-            },
-            {
-                name: "detail",
-                path: "detail",
-                element: <AdDetail />
-            },
-            {
-                name: 'settings',
-                path: 'settings',
-                element: <UserSettings />
             }
         ]
     },
@@ -53,6 +40,43 @@ const routes = [
                 name: "verificate",
                 path: "verificate",
                 element: <VerificateEmail /> 
+            }
+        ]
+    },
+    {
+        name: "ad",
+        path: "ad",
+        element: <AdLayout />,
+        children: [
+            {
+                index: true,
+                element: <AdList />
+            },
+            {
+                name: "detail",
+                path: "detail",
+                element: <AdDetail />
+            }
+        ]
+    },
+    {
+        name: "settings",
+        path: "settings",
+        element: <SettingsLayout />,
+        children: [
+            {
+                index: true,
+                element: <UserProfileSettings />
+            },
+            {
+                name: "user",
+                path: "user",
+                element: <UserProfileSettings />
+            },
+            {
+                name: "petinformation",
+                path: "petinformation",
+                element: <UserPetInfo />
             },
             {
                 name: "application",
