@@ -18,13 +18,13 @@ const Navbar = () => {
   return (
     <div className='def-nav-main h-28 sticky top-0'>
       <div className='container h-28 mx-auto px-4 flex items-center place-content-between m-nav'>
-        <div className='brand'>
+        <div className='brand '>
           <img src={PeticomLogo} className='logo' onClick={() => {navigate(url("home"))}} />
         </div>
         <div className='r-multi-button'>
           {token ? (
             <>
-              <img src={UserPicture} className=''/>
+              <img src={UserPicture} className='cursor-pointer' onClick={() => {navigate(url("settings"))}}/>
             </>
           ) : (
             <>

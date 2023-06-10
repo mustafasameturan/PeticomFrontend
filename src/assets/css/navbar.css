@@ -14,23 +14,28 @@ html{
 }
 
 .button{
-    background-color: #F3F3F3;
+    /* background-color: #F3F3F3; */
+    background-color: white;
     font-size: 1.2rem;
     padding: 1rem 0 1rem 0;
+    
      
 }
+
 
 .button.left{
     border-radius: 50px 0 0 50px;
     padding-left: 2rem;
     padding-right: 1rem;
     margin-right: -5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .button.right{
     border-radius: 0 50px 50px 0;
     padding-right: 2rem;
     padding-left: 1rem;
+    box-shadow: rgba(100, 100, 111, 0.1) 0px 7px 29px 0px;
 }
 
 .user-pic{
