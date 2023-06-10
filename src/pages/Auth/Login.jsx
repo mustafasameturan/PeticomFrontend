@@ -87,7 +87,7 @@ const Login = () => {
           />
         </form>
         <div className="forgot-password-text hover:text-white">
-          <button className="font-[20px]">Şifremi Unuttum</button>
+          <button className="font-[20px]"  onClick={() => navigate(url("auth.forgot"))}>Şifremi Unuttum</button>
         </div>
         <div className="or">veya</div>
         <a href="#" className="google-signup-icon">

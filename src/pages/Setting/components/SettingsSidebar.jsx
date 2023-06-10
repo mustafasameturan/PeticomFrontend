@@ -44,9 +44,11 @@ const SettingsSidebar = () => {
                     {/* <h2>İlan Ver</h2> */}
                 </div>
             </div>
-            <div className="row-span-1 cursor-pointer hover:bg-stone-200">
+            <div className={`row-span-1 cursor-pointer hover:bg-stone-200 ${location.pathname === '/settings/passupdate' ? 'bg-stone-100' : ''}`}
+                onClick={() => navigate(url("settings.passupdate"))}
+            >
                 <div className="p-5">
-                    <h2>Geçmiş Bakımlar</h2>
+                    <h2>Şifre İşlemleri</h2>
                 </div>
             </div>
             <div className="row-span-1 cursor-pointer hover:bg-stone-200">
