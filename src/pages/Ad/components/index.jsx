@@ -1,3 +1,4 @@
 import PetIdentityModal from "./PetIdentityModal";
+import AdTableRow from "./AdTableRow";
 
-export { PetIdentityModal }
+export { PetIdentityModal, AdTableRow }

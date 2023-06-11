@@ -30,3 +30,15 @@
 body.active-modal {
   @apply !overflow-y-hidden
 }
+
+.button {
+  @apply bg-white border border-[#ebedf2] px-4 focus:border-orange outline-none rounded-full h-[45px] flex items-center justify-center
+}
+
+.search-button {
+  @apply hover:opacity-90
+}
+
+.active-button {
+  @apply font-bold bg-orange text-white hover:!bg-orange hover:!text-white focus:bg-orange focus:text-white
+}

@@ -47,11 +47,13 @@ const Register = () => {
   const sendVerificationCode = async (userId) => {
     
     const response = await SendVerificationCode(userId);
-    console.log("code response", response);
+    
     if(response.statusCode === 200){
       setLoading(loading => false);
       ToastDefault("Başarıyla kayıt olundu. Doğrulama kodu e-posta adresinize gönderildi!");
       navigate(url("auth.verificate"), { state: { userId: userId } });
+    } else {
+      ToastError(response.error.errors[0]);
     }
   };
 

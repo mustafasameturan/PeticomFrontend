@@ -1,3 +1,6 @@
-import SettingsSidebar from "./SettingsSidebar"
+import SettingsSidebar from "./SettingsSidebar";
 
-export { SettingsSidebar }
+import ResetPassword from "./PasswordOperations/ResetPassword";
+import UpdatePassword from "./PasswordOperations/UpdatePassword";
+
+export { SettingsSidebar, ResetPassword, UpdatePassword }
