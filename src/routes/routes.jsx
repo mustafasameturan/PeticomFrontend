@@ -1,6 +1,6 @@
 import AuthLayout from "../pages/Auth/AuthLayout";
 import { Home, HomeLayout } from "../pages/Home";
-import { Login, Register, VerificateEmail, ForgotPassword } from "../pages/Auth";
+import { Login, Register, VerificateEmail, ForgotPassword, NotFound, SoonPage } from "../pages/Auth";
 import { AdLayout, AdList, AdDetail } from "../pages/Ad";
 import { PeticomerApplication, SettingsLayout, UserPetInfo, UserProfileSettings, UpdatePasswordHome } from "../pages/Setting";
 import AuthRoute from "../pages/Route/AuthRoute";
@@ -54,6 +54,18 @@ const routes = [
                 path: "forgot",
                 peticomerAccess: true,
                 element: <ForgotPassword/>
+            },
+            {
+                name: "notfound",
+                path: "notfound",
+                peticomerAccess: true,
+                element: <NotFound/>
+            },
+            {
+                name: "soon",
+                path: "soon",
+                peticomerAccess: true,
+                element: <SoonPage/>
             }
         ]
     },

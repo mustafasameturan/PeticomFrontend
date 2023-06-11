@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { MainPagePicture, MainSearchBar } from "./components";
+import { MainPagePicture, MainSearchBar, FAQ } from "./components";
 
 const Home = () => {
 
@@ -8,6 +8,8 @@ const Home = () => {
       <MainPagePicture />
 
       <MainSearchBar />
+      
+      <FAQ/>
     </>
   )
 }
