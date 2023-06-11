@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../assets/css/login.css";
 import { GoogleIcon } from "../../assets/img";
-import { Input, Button } from "../../components";
+import { Input, Button, Loading } from "../../components";
 import { useNavigate } from "react-router-dom";
 import { url } from "../../routes/Utility";
 import { ToastDefault, ToastError, ToastInfo } from "../../components/Toastr";
@@ -20,8 +20,6 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const token = getCookie(cookieName) || false;
 
   const submitHandle = async (e) => {
     e.preventDefault();
@@ -46,8 +44,10 @@ const Login = () => {
       navigate(url("home"));
       ToastDefault("Giriş başarılı!");
     } else {
-      ToastError("İşlem başarısız oldu!");
+      ToastError(response.error.errors[0]);
     }
+
+    setLoading(loading => false);
   }
 
   return (
@@ -79,12 +79,24 @@ const Login = () => {
               setState={setPassword}
             />
           </div>
-          <Button 
+          {/* <Button 
             type="submit"
             text="Giriş Yap"
             classnames="mt-2"
             action={() => setLoading(loading => true)}
-          />
+          /> */}
+
+          <button 
+            type="submit" 
+            className="bg-white hover:bg-[#F8F6F4] rounded-full w-32 text-lg h-9 items-center justify-center"
+            onClick={() => setLoading(loading => true)}
+          >
+            {loading ? (
+              <Loading showText="notShow" />
+            )  :(
+              <p>Giriş Yap</p>
+            )}
+          </button>
         </form>
         <div className="forgot-password-text hover:text-white">
           <button className="font-[20px]"  onClick={() => navigate(url("auth.forgot"))}>Şifremi Unuttum</button>

@@ -1,63 +1,111 @@
-import React from 'react'
-import "../../assets/css/searchresults.css"
-import { Cat, Dog, Handshake, NoneDog, SmokeFree } from '../../assets/svg'
-import { useNavigate } from 'react-router-dom'
-import { url } from '../../routes/Utility'
+import React, { useEffect, useState } from "react";
+import "../../assets/css/searchresults.css";
+import { useLocation, useNavigate } from "react-router-dom";
+import { GetAdsByFilter } from "../../services/AdService";
+import { Loading, Pagination } from "../../components";
+import { AdTableRow } from "./components";
 
 const AdList = () => {
-  
-  const navigate = useNavigate();
+
+  const location = useLocation();
+
+  const limit = parseInt(process.env.REACT_APP_TABLE_ROW_LIMIT);
+  const [start, setStart] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalRecord, setTotalRecord] = useState(0);
+  const [ads, setAds] = useState([]);
+  const [order, setOrder] = useState(-1);
+  console.log(order);
+  const [detailSearch, setDetailSearch] = useState({
+    city: -1,
+    searchText: "",
+    order: -1
+  });
+
+  const getAdsByFilter = async () => {
+    const model = {
+      start: start,
+      limit: limit,
+      search: detailSearch.searchText,
+      cityId: detailSearch.city,
+      order: detailSearch.order
+    };
+
+    console.log(model);
+
+    const result = await GetAdsByFilter(model);
+
+    console.log(result);
+
+    if (result.statusCode === 200) {
+      setAds((ads) => result.data.data);
+      setTotalRecord(totalRecord => result.data.recordsTotal);
+      setLoading((loading) => false);
+    }
+  };
+
+  useEffect(() => {
+    if (totalRecord !== 0) {
+      getAdsByFilter();
+    }
+  }, [start])
+
+  useEffect(() => {
+    const city = location?.state?.city;
+    const searchText = location?.state?.searchText;
+
+    setDetailSearch({ searchText: searchText, city: city, order: order });
+  }, [location, order]);
+
+  useEffect(() => {
+    let abortController = new AbortController();
+
+    getAdsByFilter();
+
+    return () => {
+      abortController.abort();
+    };
+  }, [detailSearch]);
 
   return (
     <div className="container mx-auto grid grid-cols-1 gap-12 mt-16">
-        <div id="filterside" className="grid grid-cols-2 justify-between mx-9">
-            <h3 className="result-text">Arama Sonuçları</h3>
-            <div className="text-end my-auto">
-                <select className="search-filter" name="search-filter">
-                    <option value="111">En iyi sonuçlar</option>
-                    <option value="112">Yeni Peticomerlar</option>
-                    <option value="113">Adresime yakın olanlar</option>
-                </select>
-            </div>
+      <div id="filterside" className="grid grid-cols-2 justify-between mx-9">
+        <h3 className="result-text">Arama Sonuçları</h3>
+        <div className="text-end my-auto">
+          <select className="search-filter" name="search-filter" onChange={(e) => setOrder(e.target.value)}>
+            <option value="-1" defaultValue={-1}>Filtrele</option>
+            <option value="1">Artan Fiyat</option>
+            <option value="2">Azalan Fiyat</option>
+            <option value="3">En Yeni İlanlar</option>
+            <option value="4">En Yüksek Puan Alanlar</option>
+          </select>
         </div>
-        <div className="resultbox grid grid-cols-3 gap-10 mx-9">
-            <div className="img-side ml-10 my-auto">
-                <img src="https://i.pravatar.cc/300" className="ml-10"alt="Profil fotoğrafı" />
-            </div>
-            <div className="peticomer-name ">
-                <h2>*Peticomer Name*</h2>
-                <p>*Why you see this profile up?*</p>
-                <div className="badges flex gap-5 ml-20 mt-7">
-                    {/* <!-- Başlangıçta bütün badgeler hidden olacak fakat kişi o badge ye sahipse dblock classNameı eklenecek
-                    böylece bagde svg görünecek --> */}
-                    <div className='group relative'>
-                      <img className="dblock" src={SmokeFree} alt="Sigara Kullanmıyor" />  
-                      <div className="tooltip-top">
-                        <p className=''>deneme</p>
-                      </div>
-                    </div>                    
-                    <img className="dblock" src={Handshake} alt="Sevilen Ev Sahibi" />
-                    <img className="dblock" src={Cat} alt="Kedi Sahibi" />
-                    <img className="hidden dblock" src={NoneDog} alt="Köpek Bakamaz" />
-                    <img className="" src={Dog} alt="Köpek Bakamaz" />
-                </div>
-            </div>
-            <div className="peticomer-star flex flex-col justify-between">
-              {/* Yıldız eklenecek */}
-              <img className="stars mt-4 mx-auto" alt="" />
-              <div className="text-end mx-auto peticomer-more-button-div">
-                <button 
-                  type="submit" 
-                  className="peticomer-more-button bg-orange hover:bg-orange-hover"
-                  onClick={() => navigate(url("home.detail"))}
-                >
-                  Detaylı İnceleme
-                </button>
-              </div>
-            </div>
-        </div>
-    </div>
-  )
-}
+      </div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          {ads.length > 0 ? (
+            ads.map((item, index) => <AdTableRow key={index} ad={item} index={index} adsLength={ads.length} />)
+          ) : (
+            <p>Herhangi bir ilan bulunamadı!</p>
+          )}
 
-export default AdList
+          <Pagination
+            totalCount={totalRecord}
+            limit={limit}
+            start={start}
+            setStart={setStart}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            setLoading={setLoading}
+            loadScreen={true}
+          />
+        </>
+      )}
+    </div>
+  );
+};
+
+export default AdList;

@@ -8,10 +8,21 @@ export const GetAds = async () => {
     return await apiRequest(url, method);
 }
 
-export const GetAdsById = async (id) => {
+export const GetAdById = async (id) => {
 
     const url = `/advertisements/getById?id=${id}`;
     const method = 'GET';
 
     return await apiRequest(url, method);
 }
+
+export const GetAdsByFilter = async (model) => {
+    const url = '/advertisements/getAdsByFilter';
+    const method = 'POST';
+    const payload = {
+        ...model
+    };
+
+    return await apiRequest(url, method, payload);
+}
+

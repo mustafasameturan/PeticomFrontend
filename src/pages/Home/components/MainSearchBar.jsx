@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import "../../../assets/css/mainsearch.css";
 import { Select } from "../../../components";
+import { Cities } from "../../../components/Constants";
+import { useNavigate } from "react-router-dom";
+import { url } from "../../../routes/Utility";
 
 const MainSearchBar = () => {
 
-  const staticCities = [
-    { id: 6, name: "Ankara" },
-    { id: 35, name: "İzmir" },
-    { id: 16, name: "Bursa" },
-    { id: 34, name: "İstanbul" }
-  ];
+  const navigate = useNavigate();
 
-  const [selectedCity, setSelectedCity] = useState(0);
+  const [selectedCity, setSelectedCity] = useState(-1);
+  const [searchText, setSearchText] = useState("");
 
   return (
     <div className="mainsearch relative">
@@ -27,15 +26,19 @@ const MainSearchBar = () => {
       <div className="search-selector flex  ">
         <div className="dropdown city pd">
           <Select 
-            options={staticCities}
+            options={Cities}
             selectedData={selectedCity}
             setSelectedData={setSelectedCity}
           />
         </div>
         <div className="searcharea">
           <form action="search" method="get">
-            <input type="text" id="search" placeholder="Ara..." />
-            <button type="submit" className="searchbutton">
+            <input type="text" id="search" placeholder="Ara..." onChange={(e) => setSearchText(e.target.value)} />
+            <button 
+              type="submit" 
+              className="searchbutton"
+              onClick={() => { navigate(url("ad"), { state: { city: selectedCity, searchText: searchText }})}}
+            >
               <i className="fa-sharp fa-solid fa-magnifying-glass"></i>
             </button>
           </form>
