@@ -4,19 +4,19 @@ import { url } from '../../../routes/Utility';
 import useAuth from '../../../hooks/useAuth';
 import { useDispatch } from 'react-redux';
 import { userLogout } from '../../../store/UserSlice';
-import useUserRole from '../../../hooks/useIsPeticomer';
 import { GetUserById } from '../../../services/UserService';
+import useIsPeticomer from '../../../hooks/useIsPeticomer';
 
 const SettingsSidebar = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
+  
+  const isPeticomer = useIsPeticomer();
   const { user } = useAuth();
   
   const [userInformation, setUserInformation] = useState({});
-
-  const isPeticomer = useUserRole();
 
   const getUserById = async (userId) => {
     const result = await GetUserById(userId);
@@ -58,6 +58,16 @@ const SettingsSidebar = () => {
                     <h2>Pet Bilgilerim</h2>
                 </div>    
             </div>
+            {isPeticomer && (
+                <div 
+                    className={`row-span-1 cursor-pointer hover:bg-stone-200 ${location.pathname === '/settings/createad' ? 'bg-stone-100' : ''}`} 
+                    onClick={() => navigate(url("settings.createad"))}
+                >
+                    <div className="p-5 ">
+                        <h2>İlanlarım</h2>
+                    </div>    
+                </div>
+            )}
             {!isPeticomer && (
                 <div 
                     className={`row-span-1 cursor-pointer hover:bg-stone-200 ${location.pathname === '/settings/application' ? 'bg-stone-100' : ''}`}

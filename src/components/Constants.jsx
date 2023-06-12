@@ -1,6 +1,11 @@
 export const cookieName = process.env.REACT_APP_JWT_COOKIE_NAME;
 
 export const Cities = [
-    { id: 6, name: "Ankara" },
-    { id: 34, name: "İstanbul" }
+    { id: 1, name: "Ankara" },
+    { id: 2, name: "İstanbul" }
+];
+
+export const PetTypes = [
+    { id: 1, name: "Kedi" },
+    { id: 2, name: "Köpek" },
 ];
