@@ -4,7 +4,8 @@
     margin-left: 20rem;
     padding: 4rem;
     border-radius: 30px;
-    background-color: rgba(228, 228, 228, .75)
+    background-color: rgba(228, 228, 228, .75);
+    z-index: -1;
 }
 
 .major-button{

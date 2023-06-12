@@ -5,6 +5,8 @@ import cat from "../img/petpic/cat.jpg";
 import pic1 from "../img/peticomer-home-pics/pic1.jpg";
 import pic2 from "../img/peticomer-home-pics/pic2.jpg";
 import default_profile from "../img/others/default_profile.png";
+import notfound  from "../img/others/notfound.svg";
+import comingsoon from "../img/others/comingsoon.png"
 
 export const UserPicture = user_picture;
 export const MainPicture = main_page_picture;
@@ -13,3 +15,5 @@ export const CatPhoto = cat;
 export const Picture1 = pic1;
 export const Picture2 = pic2;
 export const DefaultProfile = default_profile;
+export const NotFoundPic = notfound;
+export const SoonPic = comingsoon;

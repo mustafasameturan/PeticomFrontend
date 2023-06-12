@@ -66,6 +66,18 @@ const routes = [
                 path: "reset",
                 peticomerAccess: true,
                 element: <ResetPassword />
+            },
+            {
+                name: "notfound",
+                path: "notfound",
+                peticomerAccess: true,
+                element: <NotFound/>
+            },
+            {
+                name: "soon",
+                path: "soon",
+                peticomerAccess: true,
+                element: <SoonPage/>
             }
         ]
     },
