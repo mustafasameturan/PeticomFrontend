@@ -2,7 +2,7 @@ import AuthLayout from "../pages/Auth/AuthLayout";
 import { Home, HomeLayout } from "../pages/Home";
 import { Login, Register, VerificateEmail, ForgotPasswordSendEmail, VerificationCodePassword, ResetPassword, SoonPage, NotFound } from "../pages/Auth";
 import { AdLayout, AdList, AdDetail } from "../pages/Ad";
-import { PeticomerApplication, SettingsLayout, UserPetInfo, UserProfileSettings, UpdatePasswordHome } from "../pages/Setting";
+import { PeticomerApplication, SettingsLayout, UserPetInfo, UserProfileSettings, UpdatePasswordHome, CreateAd } from "../pages/Setting";
 import AuthRoute from "../pages/Route/AuthRoute";
 import PeticomerRoute from "../pages/Route/PeticomerRoute";
 
@@ -139,7 +139,14 @@ const routes = [
                 path: "passupdate",
                 auth: true,
                 peticomerAccess: true,
-                element: <UpdatePasswordHome/>
+                element: <UpdatePasswordHome />
+            },
+            {
+                name: "createad",
+                path: "createad",
+                auth: true,
+                peticomerAccess: true,
+                element: <CreateAd />
             },
         ]
     }

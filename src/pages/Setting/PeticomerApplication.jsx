@@ -54,8 +54,8 @@ const PeticomerApplication = () => {
                             <div className="flex flex-row items-center justify-between pb-4">
                                 <label htmlFor="ptcmrdesc" className='mr-[218px] mb-1 text-lg font-medium'>Açıklama</label>
                                 <textarea 
-                                className="rounded-lg w-[320px] h-24 outline-none pl-4 pt-1 placeholder:text-lg border border-gray-200"
-                                placeholder="Kendinizden bahsedin"
+                                    className="rounded-lg w-[320px] h-24 outline-none pl-4 pt-1 placeholder:text-lg border border-gray-200"
+                                    placeholder="Kendinizden bahsedin"
                                 >
                                 </textarea>
                             </div>

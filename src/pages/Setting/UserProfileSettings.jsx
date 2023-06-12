@@ -25,8 +25,9 @@ const UserProfileSettings = () => {
   const [imageUrl, setImageUrl] = useState("");
 
   const getUserById = async (userId) => {
+    
     const result = await GetUserById(userId);
-    console.log(result);
+    
     if(result.statusCode === 200){
       setLoading(loading => false);
       setUserInformation(userInformation => result.data);

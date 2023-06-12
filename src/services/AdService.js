@@ -26,3 +26,27 @@ export const GetAdsByFilter = async (model) => {
     return await apiRequest(url, method, payload);
 }
 
+export const GetAdsByUserId = async (userId) => {
+    const url = `/advertisements/getAdsByUserId?userId=${userId}`;
+    const method = 'GET';
+
+    return await apiRequest(url, method);
+}
+
+export const CreateAdService = async (model) => {
+    const url = `/advertisements/add`;
+    const method = 'POST';
+    const payload = {
+        ...model
+    };
+
+    return await apiRequest(url, method, payload);
+}
+
+export const DeleteAd = async (adId) => {
+    const url = `/advertisements/delete?id=${adId}`;;
+    const method = 'DELETE';
+
+    return await apiRequest(url, method);
+} 
+
