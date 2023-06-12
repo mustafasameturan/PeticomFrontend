@@ -2,7 +2,7 @@ import React from 'react'
 
 const Input = (props) => {
   
-  const { id, type, name, placeholder, setState, value } = props;
+  const { id, type, name, placeholder, setState, value, onKeyDown } = props;
 
   return (
     <div className='flex flex-col items-center justify-center'>
@@ -13,6 +13,7 @@ const Input = (props) => {
             value={value}
             className="border rounded-full w-80 outline-none pl-5 text-lg h-9"
             placeholder={placeholder}
+            onKeyDown={onKeyDown}
             onChange={(e) => setState(e.target.value)}
         />
     </div>

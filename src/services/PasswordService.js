@@ -19,3 +19,21 @@ export const ResetPasswordService = async (model) => {
 
     return await apiRequest(url, method, payload);
 }
+
+export const SendVerificationCodeForResetPassword = async (email) => {
+    const url = '/users/sendVerificationCodeForResetPassword';
+    const method = 'POST';
+    const payload = email;
+
+    return await apiRequest(url, method, email);
+}
+
+export const ConfirmVerificationCodeForResetPassword = async (model) => {
+    const url = '/users/confirmVerificationCodeForResetPassword';
+    const method = 'POST';
+    const payload = {
+        ...model
+    };
+
+    return await apiRequest(url, method, payload);
+}
