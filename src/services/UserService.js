@@ -7,3 +7,14 @@ export const GetUserById = async (userId) => {
     
     return await apiRequest(url, method);
 }
+
+export const UpdateUser = async (model) => {
+
+    const url = "/users/updateUser";
+    const method = 'POST';
+    const payload = {
+        ...model
+    }
+
+    return await apiRequest(url, method, payload);
+}

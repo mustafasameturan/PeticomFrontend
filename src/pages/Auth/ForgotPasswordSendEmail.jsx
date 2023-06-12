@@ -5,29 +5,38 @@ import "../../assets/css/register.css";
 import { VerificateEmailService } from '../../services/AuthService';
 import { ToastDefault, ToastError } from '../../components/Toastr';
 import { url } from '../../routes/Utility';
+import { validateEmail } from '../../components/Utility';
+import { SendVerificationCodeForResetPassword } from '../../services/PasswordService';
 
-const VerificateEmail = () => {
+const ForgotPasswordSendEmail = () => {
 
   const navigate = useNavigate();
-  const location = useLocation();
-  const userId = location?.state?.userId || false;  
 
   const [loading, setLoading] = useState(false);  
-  const [resetedemail, setResetedEmail] = useState("");
+  const [email, setEmail] = useState("");
     
   const submitHandle = async (e) => {
-    // e.preventDefault();
+    e.preventDefault();
 
-    // const response = await VerificateEmailService(userId, verificationCode);
+    let valid = true;
 
-    // console.log(response);
-    // if(response.statusCode === 200){
-    //     setLoading(loading => false);
-    //     ToastDefault("E-Posta başarıyla doğrulandı!");
-    //     navigate(url("auth.login"));
-    // } else {
-    //     ToastError("İşlem başarısız oldu!");
-    // }
+    if(!validateEmail(email)){
+        valid = false;
+        ToastError("E-Posta formatınız hatalı!");
+    }
+
+    if(valid){
+        const response = await SendVerificationCodeForResetPassword(email);
+
+        if(response.statusCode === 200){
+            ToastDefault("Şifre sıfırlama kodu başarıyla gönderildi!");
+            navigate(url("auth.verificatepassword"), { state: { email: email }});
+        } else {
+            ToastError(response.error.errors[0]);
+        }
+    }
+
+    setLoading(loading => false);
   };
 
   return (
@@ -46,7 +55,7 @@ const VerificateEmail = () => {
                             id="reseted-email" 
                             placeholder="E-Posta Adresinizi Girin"
                             type="text"
-                            setState={setResetedEmail}
+                            setState={setEmail}
                         />
                     </div>
 
@@ -58,7 +67,7 @@ const VerificateEmail = () => {
                         {loading ? (
                             <Loading showText="notShow" />
                         )  :(
-                            <p>Doğrula</p>
+                            <p>Gönder</p>
                         )}
                     </button>
                 </form>
@@ -69,4 +78,4 @@ const VerificateEmail = () => {
   )
 }
 
-export default VerificateEmail;
+export default ForgotPasswordSendEmail;

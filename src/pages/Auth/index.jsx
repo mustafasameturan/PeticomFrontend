@@ -2,6 +2,8 @@ import AuthLayout from "./AuthLayout";
 import Login from "./Login";
 import Register from "./Register";
 import VerificateEmail from "./VerificateEmail";
-import ForgotPassword from "./ForgotPassword"
+import ForgotPasswordSendEmail from "./ForgotPasswordSendEmail"
+import VerificationCodePassword from "./VerificationCodePassword";
+import ResetPassword from "./ResetPassword";
 
-export { AuthLayout, Login, Register, VerificateEmail, ForgotPassword };
+export { AuthLayout, Login, Register, VerificateEmail, ForgotPasswordSendEmail, VerificationCodePassword, ResetPassword };

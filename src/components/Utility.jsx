@@ -23,3 +23,21 @@ export const decodeToken = token => {
 
     return JSON.parse(jsonPayload);
 }
+
+//girilen değerin number olup olmadığını kontrol eden fonksiyon
+export const checkNumber = e => {
+
+    let keypressed = e.keyCode;
+
+    if ((keypressed >= 48 && keypressed <= 57) ||
+        (keypressed >= 96 && keypressed <= 105)
+        || keypressed === 8
+        || keypressed === 27
+        || keypressed === 46
+        || keypressed === 9
+        || (keypressed >= 35 && keypressed <= 40)) {
+        return true;
+    }
+
+    return false;
+}

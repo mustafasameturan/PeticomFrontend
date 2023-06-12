@@ -1,6 +1,6 @@
 import AuthLayout from "../pages/Auth/AuthLayout";
 import { Home, HomeLayout } from "../pages/Home";
-import { Login, Register, VerificateEmail, ForgotPassword } from "../pages/Auth";
+import { Login, Register, VerificateEmail, ForgotPasswordSendEmail, VerificationCodePassword, ResetPassword } from "../pages/Auth";
 import { AdLayout, AdList, AdDetail } from "../pages/Ad";
 import { PeticomerApplication, SettingsLayout, UserPetInfo, UserProfileSettings, UpdatePasswordHome } from "../pages/Setting";
 import AuthRoute from "../pages/Route/AuthRoute";
@@ -53,7 +53,19 @@ const routes = [
                 name: "forgot",
                 path: "forgot",
                 peticomerAccess: true,
-                element: <ForgotPassword/>
+                element: <ForgotPasswordSendEmail />
+            },
+            {
+                name: "verificatepassword",
+                path: "verificatepassword",
+                peticomerAccess: true,
+                element: <VerificationCodePassword />
+            },
+            {
+                name: "reset",
+                path: "reset",
+                peticomerAccess: true,
+                element: <ResetPassword />
             }
         ]
     },
@@ -116,8 +128,7 @@ const routes = [
                 auth: true,
                 peticomerAccess: true,
                 element: <UpdatePasswordHome/>
-            }
-
+            },
         ]
     }
 ];

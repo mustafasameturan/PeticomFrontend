@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { url } from '../../../routes/Utility';
 import useAuth from '../../../hooks/useAuth';
 import { useDispatch } from 'react-redux';
 import { userLogout } from '../../../store/UserSlice';
 import useUserRole from '../../../hooks/useIsPeticomer';
+import { GetUserById } from '../../../services/UserService';
 
 const SettingsSidebar = () => {
 
@@ -12,7 +13,24 @@ const SettingsSidebar = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const { user } = useAuth();
+  
+  const [userInformation, setUserInformation] = useState({});
+
   const isPeticomer = useUserRole();
+
+  const getUserById = async (userId) => {
+    const result = await GetUserById(userId);
+
+    if(result.statusCode === 200){
+      setUserInformation(userInformation => result.data);
+    }
+  }
+
+  useEffect(() => {
+    if(user.UserId){
+        getUserById(user.UserId);
+    }
+  }, [])
   
   return (
     <>
@@ -20,7 +38,7 @@ const SettingsSidebar = () => {
             <div className="row-span-1 bgdef">
                 <div className="pl-1 text-white text-center">
                     <h6>Merhaba,</h6>
-                    <h1 className=" font-bold textname">{user.UserFullName}</h1>
+                    <h1 className=" font-bold textname">{userInformation.fullName}</h1>
                 </div>
             </div>
             <div className="row-span-1">
