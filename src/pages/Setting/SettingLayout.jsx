@@ -4,7 +4,6 @@ import { SettingsSidebar } from "./components";
 import { Outlet } from 'react-router-dom';
 import "../../assets/css/usersettings.css"
 
-
 const Settings = () => {
   return (
     <>
@@ -24,8 +23,10 @@ const Settings = () => {
                   <Outlet />  
                 </div>
             </div>
+
         </div>
-      </div>
+      </div>  
+
     </>
   )
 };

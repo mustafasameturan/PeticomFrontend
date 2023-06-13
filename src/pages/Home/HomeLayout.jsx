@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar } from "../../components";
+import { Navbar, Footer } from "../../components";
 import { Outlet } from 'react-router-dom';
 
 const HomeLayout = () => {
@@ -8,6 +8,8 @@ const HomeLayout = () => {
         <Navbar />
 
         <Outlet />
+
+        <Footer />
     </>
   )
 }

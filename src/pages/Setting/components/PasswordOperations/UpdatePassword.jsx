@@ -56,8 +56,6 @@ const UpdatePassword = () => {
     return false;
   }
 
-  console.log(disabledControl())
-
   return (
     <>
       <div className="border-b border-gray-200">

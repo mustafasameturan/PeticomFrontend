@@ -16,7 +16,6 @@ const AdList = () => {
   const [totalRecord, setTotalRecord] = useState(0);
   const [ads, setAds] = useState([]);
   const [order, setOrder] = useState(-1);
-  console.log(order);
   const [detailSearch, setDetailSearch] = useState({
     city: -1,
     searchText: "",
@@ -32,11 +31,7 @@ const AdList = () => {
       order: detailSearch.order
     };
 
-    console.log(model);
-
     const result = await GetAdsByFilter(model);
-
-    console.log(result);
 
     if (result.statusCode === 200) {
       setAds((ads) => result.data.data);
@@ -89,7 +84,7 @@ const AdList = () => {
           {ads.length > 0 ? (
             ads.map((item, index) => <AdTableRow key={index} ad={item} index={index} adsLength={ads.length} />)
           ) : (
-            <p>Herhangi bir ilan bulunamadı!</p>
+            <p className="mx-auto">Herhangi bir ilan bulunamadı!</p>
           )}
 
           <Pagination
