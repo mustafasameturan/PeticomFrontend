@@ -8,6 +8,7 @@ import smoke_free from "../svg/badges/smoke-free.svg";
 import car from "../svg/badges/car.svg";
 import car_distance from "../svg/badges/car-distance.svg";
 import garden from "../svg/badges/garden.svg";
+import instagram from "../svg/others/instagram.svg";
 
 export const PeticomLogo = peticom_logo;
 export const Cat = cat;
@@ -19,3 +20,4 @@ export const SmokeFree = smoke_free;
 export const Car = car;
 export const CarDistance = car_distance;
 export const Garden = garden;
+export const Instagram = instagram;

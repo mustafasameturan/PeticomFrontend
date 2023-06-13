@@ -9,3 +9,8 @@ export const PetTypes = [
     { id: 1, name: "Kedi" },
     { id: 2, name: "Köpek" },
 ];
+
+export const Genders = [
+    { id: 0, name: "Erkek"},
+    { id: 1, name: "Dişi"}
+];

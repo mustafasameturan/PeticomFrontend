@@ -46,17 +46,19 @@ const CreateAdComponent = () => {
       console.log(model)
 
       const response = await CreateAdService(model);
+
       console.log(response);
+      
       if(response.statusCode === 200){
         ToastSuccess("İlan başarıyla oluşturuldu!");
-        window.location.reload();
+        setTimeout(() => { window.location.reload(); }, 2000);
       }
 
-      setLoading(loading => false);
     } else {
       ToastInfo("Lütfen bilgileri eksiksiz giriniz!");
     }
-
+    
+    setLoading(loading => false);
   }
 
   return (

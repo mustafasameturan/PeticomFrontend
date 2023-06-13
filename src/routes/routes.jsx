@@ -2,7 +2,7 @@ import AuthLayout from "../pages/Auth/AuthLayout";
 import { Home, HomeLayout } from "../pages/Home";
 import { Login, Register, VerificateEmail, ForgotPasswordSendEmail, VerificationCodePassword, ResetPassword, SoonPage, NotFound } from "../pages/Auth";
 import { AdLayout, AdList, AdDetail } from "../pages/Ad";
-import { PeticomerApplication, SettingsLayout, UserPetInfo, UserProfileSettings, UpdatePasswordHome, CreateAd } from "../pages/Setting";
+import { PeticomerApplication, SettingsLayout, PetIdentityHome, UserProfileSettings, UpdatePasswordHome, CreateAd, PetInformations } from "../pages/Setting";
 import AuthRoute from "../pages/Route/AuthRoute";
 import PeticomerRoute from "../pages/Route/PeticomerRoute";
 
@@ -121,11 +121,11 @@ const routes = [
                 element: <UserProfileSettings />
             },
             {
-                name: "petinformation",
-                path: "petinformation",
+                name: "petidentity",
+                path: "petidentity",
                 auth: true,
                 peticomerAccess: true,
-                element: <UserPetInfo />
+                element: <PetIdentityHome />
             },
             {
                 name: "application",
@@ -147,6 +147,13 @@ const routes = [
                 auth: true,
                 peticomerAccess: true,
                 element: <CreateAd />
+            },
+            {
+                name: "petinformations",
+                path: "petinformations",
+                auth: true,
+                peticomerAccess: true,
+                element: <PetInformations />
             },
         ]
     }

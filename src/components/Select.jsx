@@ -4,7 +4,7 @@ const Select = (props) => {
 
     const { id, reference, selectedData, setSelectedData, isDisabled, classnames, options } = props;
     const classname = typeof classnames === "undefined" ? '' : classnames;
-
+  
     return (
       <>
         <select
@@ -22,7 +22,7 @@ const Select = (props) => {
               <option key={index} value={option.id} onChange={() => setSelectedData(option.id)}>
                 {option.name}
               </option>
-            ))}
+          ))}
         </select>
       </>
     );

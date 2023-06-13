@@ -2,19 +2,24 @@ import React, { useEffect, useState } from "react";
 import { AdInformation, CreateAdComponent } from "./components";
 import { GetAdsByUserId } from "../../services/AdService";
 import useAuth from "../../hooks/useAuth";
+import { Loading } from "../../components";
 
 const CreateAd = () => {
 
   const { user } = useAuth();  
 
   const [isHaveAd, setIsHaveAd] = useState(false);  
+  const [loading, setLoading] = useState(true);
 
   const getAdsByUserId = async (userId) => {
 
     const response = await GetAdsByUserId(userId);
 
-    if(response.statusCode === 204){
+    if(response.statusCode === 200){
         setIsHaveAd(isHaveAd => response.data.length > 0 ? true : false);
+        setLoading(loading => false);
+    } else {
+      setLoading(loading => false);
     }
   }
 
@@ -34,10 +39,18 @@ const CreateAd = () => {
         </div>
       </div>
 
-      {isHaveAd ? (
-        <AdInformation />
+      {loading ? (
+        <div className="m-8">
+          <Loading />
+        </div>
       ) : (
-        <CreateAdComponent />
+
+        isHaveAd ? (
+          <AdInformation />
+        ) : (
+          <CreateAdComponent />
+        )
+        
       )}
 
     </>

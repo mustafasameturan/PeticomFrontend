@@ -37,8 +37,6 @@ const AdTableRow = (props) => {
     }
   }, [ad])
 
-  console.log(peticomerBadges);
-
   return (
     <div className={`resultbox grid grid-cols-3 gap-10 mx-9 ${((adsLength < 5) && (index+1 === adsLength)) ? 'mb-12' : ''}`}>
       <div className="img-side ml-10 my-auto">

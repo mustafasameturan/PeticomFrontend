@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, NavbarMiddle } from "../../components";
+import { NavbarMiddle } from "../../components";
 import { Outlet } from 'react-router-dom';
 
 const AuthLayout = () => {
