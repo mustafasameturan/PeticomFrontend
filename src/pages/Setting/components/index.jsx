@@ -10,5 +10,9 @@ import CreatePetComponent from "./PetIdentity/CreatePetComponent";
 import DiseasesComponent from "./PetIdentity/DiseasesComponent";
 import VaccinesComponent from "./PetIdentity/VaccinesComponent";
 
+import PetInformationComponent from "./PetInformations/PetInformationComponent";
+import PetInformationModal from "./PetInformations/PetInformationModal";
+
 export { SettingsSidebar, ResetPassword, UpdatePassword,
-        CreateAdComponent, AdInformation, CreatePetComponent, DiseasesComponent, VaccinesComponent }
+        CreateAdComponent, AdInformation, CreatePetComponent, 
+        DiseasesComponent, VaccinesComponent, PetInformationComponent }

@@ -41,3 +41,10 @@ export const checkNumber = e => {
 
     return false;
 }
+
+//ISO Formatlı datetime içerikleri formatlamak için kullanılıyor. TimeZone ihtiyacı duyulmuyor
+export const ISOStringToDate2 = date => {
+    let tmpDate = new Date(date);
+    let returnDate = ("0" + tmpDate.getDate()).slice(-2) + "." + ("0" + (tmpDate.getMonth() + 1)).slice(-2) + '.' + tmpDate.getFullYear()
+    return returnDate
+}

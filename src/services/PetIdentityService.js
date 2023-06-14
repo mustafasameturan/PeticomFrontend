@@ -17,6 +17,13 @@ export const GetFullPetIdentityByUserIdService = async (userId) => {
     return await apiRequest(url, method);
 }
 
+export const GetPetFullIdentitiesByUserId = async (userId) => {
+    const url = `/petIdentities/getFullIdentityByUserId?userId=${userId}`
+    const method = 'GET';
+    
+    return await apiRequest(url, method);
+}
+
 export const GetPetIdentitiesSelectListByUserIdService = async (userId) => {
     const url = `/petIdentities/petIdentitiesSelectListByUserId?userId=${userId}`
     const method = 'GET';

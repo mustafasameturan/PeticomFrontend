@@ -94,7 +94,7 @@ const routes = [
             },
             {
                 name: "detail",
-                path: "detail",
+                path: "detail/:adId",
                 peticomerAccess: true,
                 element: <AdDetail />
             }

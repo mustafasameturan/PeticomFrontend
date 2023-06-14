@@ -42,12 +42,12 @@ const PeticomerApplication = () => {
       };
 
       const response = await CreateApplicationService(model);
-
+      console.log(response);
       if(response.statusCode === 200){
         ToastSuccess("Peticomer başvurunuz başarıyla alındı. En kısa sürede e-posta yoluyla bilgilendirileceksiniz!");
         setTimeout(() => { window.location.reload()}, 5000);
       } else {
-        ToastError("İşlem sırasında bir hata oluştu!");
+        ToastError(response.error.errors[0] === 'You have already applicaton!' ? 'Devam eden bir başvurunuz bulunmaktadır!' : 'İşlem sırasında bir hata oluştu!');
       }
 
     } else {

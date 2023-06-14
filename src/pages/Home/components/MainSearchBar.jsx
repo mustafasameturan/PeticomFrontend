@@ -11,16 +11,28 @@ const MainSearchBar = () => {
 
   const [selectedCity, setSelectedCity] = useState(-1);
   const [searchText, setSearchText] = useState("");
+  const [selectedType, setSelectedType] = useState(-1);
+
+  console.log(selectedType);
 
   return (
     <div className="mainsearch relative">
       <div className="main-upper-multi-button flex justify-between search">
         <div>
-          <button className="major-button cat">Kedi</button>
-          <button className="major-button">Köpek</button>
+          <button 
+            className={`major-button cat ${selectedType === 0 ? 'border-2 border-orange bg-white text-orange' : 'hover:bg-[#f9a26c]'}`}
+            onClick={() => setSelectedType(selectedType => 0)}
+          >
+            Kedi
+          </button>
+          <button 
+            className={`major-button ${selectedType === 1 ? 'border-2 border-orange bg-white text-orange' : 'hover:bg-[#f9a26c]'}`}
+            onClick={() => setSelectedType(selectedType => 1)}>
+            Köpek
+          </button>
         </div>
         <div>
-          <button className="major-button petlogger">Petlogger</button>
+          <button className="major-button petlogger hover:bg-[#f9a26c]" onClick={() => {navigate(url("auth.soon"))}}>Petlogger</button>
         </div>
       </div>
       <div className="search-selector flex  ">
