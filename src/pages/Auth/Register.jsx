@@ -35,12 +35,11 @@ const Register = () => {
 
     const response = await RegisterService(model);
 
-    console.log(response);
     if(response.statusCode === 200){
       setUserId(userId => response.data?.id);
     } else {
       setLoading(loading => false);
-      ToastError("İşlem başarısız oldu!");
+      ToastError(response.error.errors[0]);
     }
   }
 

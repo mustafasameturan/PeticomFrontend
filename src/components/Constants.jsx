@@ -6,8 +6,8 @@ export const Cities = [
 ];
 
 export const PetTypes = [
-    { id: 1, name: "Kedi" },
-    { id: 2, name: "Köpek" },
+    { id: 0, name: "Kedi" },
+    { id: 1, name: "Köpek" },
 ];
 
 export const Genders = [

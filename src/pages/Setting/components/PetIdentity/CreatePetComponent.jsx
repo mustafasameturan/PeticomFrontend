@@ -56,7 +56,7 @@ const CreatePetComponent = () => {
             lastInsDate: lastInsDate,
         };
 
-        console.log(model);
+        
         const response = await CreatePetIdentityService(model);
 
         console.log(response);

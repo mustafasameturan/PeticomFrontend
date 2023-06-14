@@ -43,6 +43,8 @@ const AdTableRow = (props) => {
         <img
           src={userInformations.imageUrl ? userInformations.imageUrl : DefaultProfile}
           className="ml-10"
+          height={30}
+          width={200}
           alt="Profil fotoğrafı"
         />
       </div>
@@ -95,7 +97,7 @@ const AdTableRow = (props) => {
           <button
             type="submit"
             className="peticomer-more-button bg-orange hover:bg-orange-hover"
-            onClick={() => navigate(url("home.detail"))}
+            onClick={() => navigate(url("ad.detail", { adId: ad.id }))}
           >
             <div className="flex items-center gap-2">
               <p>₺{ad.price}</p>

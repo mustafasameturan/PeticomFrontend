@@ -1,23 +1,61 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import '../../assets/css/resultdetail.css';
 import { CatPhoto, Picture1, Picture2 } from "../../assets/img";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { url } from "../../routes/Utility";
 import useAuth from "../../hooks/useAuth";
 import { PetIdentityModal } from "./components";
 import { Modal } from "../../components/Modal";
+import { GetAdById } from "../../services/AdService";
+import { GetUserById } from "../../services/UserService";
 
 const AdDetail = () => {
  
   const navigate = useNavigate();
+  const { adId } = useParams();
 
   const [modal, setModal] = useState(false);
   const [modalContent, setModalContent] = useState({});
+  const [adInformation, setAdInformation] = useState({});
+  const [userInformation, setUserInformation] = useState({});
+
+  const getAdById = async (adId) => {
+
+    const response = await GetAdById(adId);
+
+    if(response.statusCode === 200){
+      setAdInformation(adInformation => response.data);
+    }
+  }
+
+  const getUserById = async (userId) => {
+
+    const response = await GetUserById(userId);
+    console.log(response);
+    if(response.statusCode === 200){
+      setUserInformation(userInformation => response.data);
+    }
+  }
+
+  console.log(userInformation);
+  console.log(adInformation);
+
+  useEffect(() => {
+    if(adId){
+      getAdById(adId);
+    }
+  }, [adId])
+
+  useEffect(() => {
+    if(Object.keys(adInformation).length > 0){
+      getUserById(adInformation.userId);
+    }
+  }, [adInformation])
 
   return (
     <>
       <div className="container mx-auto">
-        <div className="flex mt-8 mb-2 cursor-pointer items-center hover:text-orange" onClick={() => navigate(url("home.ad"))}>
+        <div className="flex mt-8 mb-2 cursor-pointer items-center hover:text-orange" onClick={() => navigate(url("ad"))}>
           <span className="material-symbols-outlined ">
               arrow_back
           </span>
@@ -26,12 +64,12 @@ const AdDetail = () => {
         <div className="resultdetail">
           <div className="grid grid-cols-3 gap-5">
             <div className=" pt-10  col-span-1 mx-auto x">
-              <img
-                className="border-r-50 mx-auto"
-                src="https://i.pravatar.cc/200"
-                alt=""
-              />
-              <h2 className="peticomer-name">*Peticomer Name*</h2>
+                <img
+                  className="border-r-50 mx-auto !h-[200px] !w-[200px]"
+                  src={userInformation.imageUrl}
+                  alt=""
+                />
+              <h2 className="peticomer-name">{userInformation.fullName}</h2>
               <img className="w-60 mx-auto" src="../assets/stars/5.svg" alt="" />
               <div className="flex badges-detail justify-center mt-4">
                 <img className="badge" src="../assets/badges/cat.svg" alt="" />
@@ -60,10 +98,7 @@ const AdDetail = () => {
               <div className="peticomer-bio">
                 <h2 className="text-center">*Kendini Tanıtma Kısmı*</h2>
                 <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Commodi aliquid perferendis quibusdam enim aliquam, eum,
-                  consequuntur eius assumenda dolorum incidunt ipsam quaerat
-                  quidem, vitae dolores esse eligendi quo optio eveniet?
+                  {adInformation.about}
                 </p>
               </div>
               <div className="peticomer-home-pic">
@@ -73,7 +108,7 @@ const AdDetail = () => {
                   <img src={Picture2} alt="" />
                 </div>
               </div>
-              <div className="review">
+              {/* <div className="review">
                 <h2>Önceki Değerlendirme</h2>
                 <div className="">
                   <div className="flex reviewer-name-star gap-14">
@@ -82,7 +117,7 @@ const AdDetail = () => {
                   </div>
                   <li>Biz çok memnun kaldık.</li>
                 </div>
-              </div>
+              </div> */}
               {/* <div className="review-continue">
                 <button>Devamını Gör</button>
               </div> */}
@@ -90,7 +125,7 @@ const AdDetail = () => {
                 <div className="text-center">
                   Gecelik
                   <br />
-                  *price*₺
+                  ₺{adInformation.price}
                 </div>
               </div>
               <div className="rezervation">
