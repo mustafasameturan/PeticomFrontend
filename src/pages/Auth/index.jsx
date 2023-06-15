@@ -6,6 +6,7 @@ import ForgotPasswordSendEmail from "./ForgotPasswordSendEmail"
 import VerificationCodePassword from "./VerificationCodePassword";
 import ResetPassword from "./ResetPassword";
 import NotFound from "./NotFound";
-import SoonPage from "./SoonPage"
+import SoonPage from "./SoonPage";
+import AboutUs from "./AboutUs";
 
-export { AuthLayout, Login, Register, VerificateEmail, ForgotPasswordSendEmail, VerificationCodePassword, ResetPassword, NotFound, SoonPage };
+export { AuthLayout, Login, Register, VerificateEmail, ForgotPasswordSendEmail, VerificationCodePassword, ResetPassword, NotFound, SoonPage, AboutUs };

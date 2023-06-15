@@ -77,17 +77,29 @@ const SettingsSidebar = () => {
             <h2>Pet Bilgisi Ekle</h2>
           </div>
         </div>
-        {isPeticomer && (
+        {isPeticomer && ( 
+          <>
           <div
             className={`row-span-1 cursor-pointer hover:bg-stone-200 ${
-              location.pathname === "/settings/createad" ? "bg-stone-100" : ""
+              location.pathname === "/settings/badge" ? "bg-stone-100" : ""
             }`}
-            onClick={() => navigate(url("settings.createad"))}
+            onClick={() => navigate(url("settings.badge"))}
           >
             <div className="p-5 ">
-              <h2>İlanlarım</h2>
+              <h2>Badge Ekle</h2>
             </div>
           </div>
+          <div
+          className={`row-span-1 cursor-pointer hover:bg-stone-200 ${
+            location.pathname === "/settings/createad" ? "bg-stone-100" : ""
+          }`}
+          onClick={() => navigate(url("settings.createad"))}
+        >
+          <div className="p-5 ">
+            <h2>İlanlarım</h2>
+          </div>
+        </div>
+        </>
         )}
         {!isPeticomer && (
           <div

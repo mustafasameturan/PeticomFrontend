@@ -1,7 +1,10 @@
 import React, { useState} from "react";
 import { Instagram, PeticomLogo } from "../assets/svg";
+import { url } from "../routes/Utility";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+    const navigate = useNavigate();
 
     return(
 
@@ -20,11 +23,16 @@ const Footer = () => {
                                 <h2 className="font-semibold md:text-xl text-sm text-center text-white">Petleriniz İçin Güvenli Adres</h2>
                             </div>
                             <div className="col-span-1 mx-auto my-auto">
-                                <a href="https://www.instagram.com/peticom.tr/" target="_blank">
-                                <div>
-                                    <img src={Instagram}  alt="" className="h-8"  />
+                                <div className="grid md:grid-cols-2 grid-cols-1 gap-3">
+                                    <div className="col-span-1 mx-auto">
+                                        <a href="https://www.instagram.com/peticom.tr/" target="_blank">
+                                            <img src={Instagram}  alt="" className="h-8"  />
+                                        </a>
+                                    </div>
+                                    <div className="col-span-1 my-auto cursor-pointer" onClick={() => navigate(url("auth.aboutus"))}>
+                                        <h1 className="text-white md:text-lg text-xs">Hakkımızda</h1>
+                                    </div>
                                 </div>
-                                </a>
                             </div>
                         </div>
                     </div>
