@@ -38,8 +38,8 @@ const AdTableRow = (props) => {
   }, [ad])
 
   return (
-    <div className={`resultbox grid grid-cols-3 gap-10 mx-9 ${((adsLength < 5) && (index+1 === adsLength)) ? 'mb-12' : ''}`}>
-      <div className="img-side ml-10 my-auto">
+    <div className={`resultbox grid md:grid-cols-3 gap-10 md:mx-9 mx-auto  ${((adsLength < 5) && (index+1 === adsLength)) ? 'mb-12' : ''}`}>
+      <div className="img-side md:ml-10 md:my-auto mx-auto">
         <img
           src={userInformations.imageUrl ? userInformations.imageUrl : DefaultProfile}
           className="ml-10"
@@ -49,8 +49,8 @@ const AdTableRow = (props) => {
         />
       </div>
       <div className="peticomer-name justify-center">
-        <h2>{userInformations.fullName}</h2>
-        <p>{ad.slogan}</p>
+        <h2 className="">{userInformations.fullName}</h2>
+        <p className="">{ad.slogan}</p>
         <div className="badges flex gap-5 mt-7 justify-center">
           {/* <!-- Başlangıçta bütün badgeler hidden olacak fakat kişi o badge ye sahipse dblock classNameı eklenecek
             böylece bagde svg görünecek --> */}

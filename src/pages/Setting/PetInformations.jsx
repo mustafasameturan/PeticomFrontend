@@ -42,7 +42,7 @@ const PetInformations = () => {
             ) : (
                 <div>
                     <div className="settingrightsizes">
-                        <div className="flex flex-row items-center justify-around pb-4">
+                        <div className="flex md:flex-row flex-col md:items-center items-start justify-around pb-4">
 
                             {petIdentities.length > 0 ? (
                                 petIdentities.map((identity, index) => (

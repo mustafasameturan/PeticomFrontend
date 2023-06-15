@@ -65,7 +65,7 @@ const UpdatePassword = () => {
       </div>
       <div>
         <div className="settingrightsizes">
-          <div className="flex flex-row items-center justify-between pb-4">
+          <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
             <label
               htmlFor="current_password"
               className="mr-[218px] mb-1 text-lg font-medium"
@@ -81,7 +81,7 @@ const UpdatePassword = () => {
               setState={setCurrentPassword}
             />
           </div>
-          <div className="flex flex-row items-center justify-between pb-4">
+          <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
             <label
               htmlFor="new_password"
               className="mr-[218px] mb-1 text-lg font-medium"
@@ -97,7 +97,7 @@ const UpdatePassword = () => {
               setState={setNewPassword}
             />
           </div>
-          <div className="flex flex-row items-center justify-between pb-4">
+          <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
             <label
               htmlFor="new_password_conf"
               className="mr-[218px] mb-1 text-lg font-medium"

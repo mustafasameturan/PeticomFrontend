@@ -65,7 +65,7 @@ const AdList = () => {
 
   return (
     <div className="container mx-auto grid grid-cols-1 gap-12 mt-16">
-      <div id="filterside" className="grid grid-cols-2 justify-between mx-9">
+      <div id="filterside" className="grid md:grid-cols-2 grid-rows-2 justify-between md:mx-9 mx-auto">
         <h3 className="result-text">Arama Sonuçları</h3>
         <div className="text-end my-auto">
           <select className="search-filter" name="search-filter" onChange={(e) => setOrder(e.target.value)}>
@@ -99,7 +99,7 @@ const AdList = () => {
           />
         </>
       )}
-    </div>
+      </div>
   );
 };
 

@@ -45,7 +45,7 @@ const AdInformation = () => {
         </div>
       ) : (
         <div className="settingrightsizes">
-          <div className="flex flex-row items-center justify-between pb-4">
+          <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
             <label
               htmlFor="petgender"
               className="mr-[218px] mb-1 text-lg font-medium"
@@ -60,7 +60,7 @@ const AdInformation = () => {
               />
             </div>
           </div>
-          <div className="flex flex-row items-center justify-between pb-4">
+          <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
             <label
               htmlFor="city"
               className="mr-[218px] mb-1 text-lg font-medium"
@@ -75,7 +75,7 @@ const AdInformation = () => {
               />
             </div>
           </div>
-          <div className="flex flex-row items-center justify-between pb-4">
+          <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
             <label
               htmlFor="petkind"
               className="mr-[218px] mb-1 text-lg font-medium"
@@ -88,7 +88,7 @@ const AdInformation = () => {
               className="border rounded-full w-80 outline-none pl-5 text-lg h-9"
             />
           </div>
-          <div className="flex flex-row items-center justify-between pb-4">
+          <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
             <label
               htmlFor="slogan"
               className="mr-[218px] mb-1 text-lg font-medium"
@@ -104,7 +104,7 @@ const AdInformation = () => {
               value={adsInformations.slogan ? adsInformations.slogan : ""}
             />
           </div>
-          <div className="flex flex-row items-center justify-between pb-4">
+          <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
             <label
               htmlFor="about"
               className="mr-[218px] mb-1 text-lg font-medium"

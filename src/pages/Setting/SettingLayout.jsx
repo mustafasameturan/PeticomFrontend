@@ -10,8 +10,8 @@ const Settings = () => {
       <Navbar />
 
       <div className="container mx-auto settingsdetail mt-10 ">
-        <div className="grid grid-cols-4 gap-5">
-            <div className="col-span-1"> 
+        <div className="grid lg:grid-cols-4 grid-cols-3 gap-5 settingsmedia">
+            <div className="col-span-3 lg:col-span-1"> 
               <SettingsSidebar />
             </div>
             <div  className="col-span-3 settingsright mb-20"> 

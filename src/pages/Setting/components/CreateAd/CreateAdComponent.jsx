@@ -64,7 +64,7 @@ const CreateAdComponent = () => {
   return (
     <div className="">
       <div className="settingrightsizes">
-        <div className="flex flex-row items-center justify-between pb-4">
+        <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
           <label
             htmlFor="petgender"
             className="mr-[218px] mb-1 text-lg font-medium"
@@ -79,7 +79,7 @@ const CreateAdComponent = () => {
             />
           </div>
         </div>
-        <div className="flex flex-row items-center justify-between pb-4">
+        <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
           <label htmlFor="city" className="mr-[218px] mb-1 text-lg font-medium">
             Şehir
           </label>
@@ -91,7 +91,7 @@ const CreateAdComponent = () => {
             />
           </div>
         </div>
-        <div className="flex flex-row items-center justify-between pb-4">
+        <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
           <label
             htmlFor="petkind"
             className="mr-[218px] mb-1 text-lg font-medium"
@@ -105,7 +105,7 @@ const CreateAdComponent = () => {
             setState={setPrice}
           />
         </div>
-        <div className="flex flex-row items-center justify-between pb-4">
+        <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
           <label
             htmlFor="slogan"
             className="mr-[218px] mb-1 text-lg font-medium"
@@ -122,7 +122,7 @@ const CreateAdComponent = () => {
             }}
           />
         </div>
-        <div className="flex flex-row items-center justify-between pb-4">
+        <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
           <label
             htmlFor="about"
             className="mr-[218px] mb-1 text-lg font-medium"

@@ -101,7 +101,7 @@ const UserProfileSettings = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-row items-center justify-between px-[10px] pb-4">
+            <div className="flex md:flex-row flex-col md:items-center items-start justify-between px-[10px] pb-4">
               <label
                 htmlFor="name"
                 className="mr-[218px] mb-1 text-lg font-medium"
@@ -117,7 +117,7 @@ const UserProfileSettings = () => {
                 setState={setFullName}
               />
             </div>
-            <div className="flex flex-row items-center justify-between px-[10px] pb-4">
+            <div className="flex md:flex-row flex-col md:items-center items-start justify-between px-[10px] pb-4">
               <label
                 htmlFor="email"
                 className="mr-[218px] mb-1 text-lg font-medium"
@@ -133,10 +133,10 @@ const UserProfileSettings = () => {
                 setState={setEmail}
               />
             </div>
-            <div className="flex flex-row items-center justify-between px-[10px] pb-4">
+            <div className="flex md:flex-row flex-col md:items-center items-start justify-between px-[10px] pb-4">
               <label
                 htmlFor="phone"
-                className="mr-[218px] mb-1 text-lg font-medium min-w-max "
+                className="mr-[218px] mb-1 text-lg font-medium "
               >
                 Telefon Numarası
               </label>
@@ -150,7 +150,7 @@ const UserProfileSettings = () => {
                 setState={setPhoneNumber}
               />
             </div>
-            <div className="flex flex-row items-center justify-between px-[10px] pb-4">
+            <div className="flex md:flex-row flex-col md:items-center items-start justify-between px-[10px] pb-4">
               <label
                 htmlFor="birthdate"
                 className="mr-[218px] mb-1 text-lg font-medium"
@@ -166,7 +166,7 @@ const UserProfileSettings = () => {
                 setState={setBirthDate}
               />
             </div>
-            <div className="flex flex-row items-center justify-between px-[10px] pb-4">
+            <div className="flex md:flex-row flex-col md:items-center items-start justify-between px-[10px] pb-4">
               <label
                 htmlFor="city"
                 className="mr-[218px] mb-1 text-lg font-medium"
@@ -182,7 +182,7 @@ const UserProfileSettings = () => {
                 setState={setCity}
               />
             </div>
-            <div className="flex flex-row items-center justify-between px-[10px] pb-4">
+            <div className="flex md:flex-row flex-col md:items-center items-start justify-between px-[10px] pb-4">
               <label
                 htmlFor="city"
                 className="mr-[218px] mb-1 text-lg font-medium"

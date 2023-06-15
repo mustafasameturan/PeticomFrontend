@@ -40,15 +40,16 @@ const SettingsSidebar = () => {
             <h1 className=" font-bold textname">{userInformation.fullName}</h1>
           </div>
         </div>
-        <div className="row-span-1">
+        <div className={`row-span-1 cursor-pointer hover:bg-stone-200 ${
+            location.pathname === "/settings/user" ||
+            location.pathname === "/settings"
+              ? "bg-stone-100"
+              : ""
+          }`}
+          onClick={() => navigate(url("settings.user"))}
+        >
           <div
-            className={`p-5 cursor-pointer hover:bg-stone-200 ${
-              location.pathname === "/settings/user" ||
-              location.pathname === "/settings"
-                ? "bg-stone-100"
-                : ""
-            }`}
-            onClick={() => navigate(url("settings.user"))}
+            className="p-5"
           >
             {/* <img src={UserPicture} className=''/> */}
             <h2>Kullanıcı Bilgilerim</h2>

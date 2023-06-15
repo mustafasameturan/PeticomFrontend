@@ -5,7 +5,7 @@ const Footer = () => {
 
     return(
 
-        <div>
+        <div className="relative mt-auto">
             <div className="bg-[#ff9e66] bottom-0">
                 <div className="container mx-auto">
                     <div className="grid grid-rows-2 ">
@@ -17,7 +17,7 @@ const Footer = () => {
                                 </div>
                             </div>
                             <div className="col-span-1 mx-auto my-auto">
-                                <h2 className="font-semibold text-xl text-white">Petleriniz İçin Güvenli Adres</h2>
+                                <h2 className="font-semibold md:text-xl text-sm text-center text-white">Petleriniz İçin Güvenli Adres</h2>
                             </div>
                             <div className="col-span-1 mx-auto my-auto">
                                 <a href="https://www.instagram.com/peticom.tr/" target="_blank">
@@ -30,7 +30,7 @@ const Footer = () => {
                     </div>
                     <div className="row-span-1 mx-auto my-auto">
                         <div>
-                            <h1 className="font-semibold text-lg text-white">2022 - Copyright - All Rights Reserved</h1>
+                            <h1 className="font-semibold md:text-lg text-sm text-white">2022 - Copyright - All Rights Reserved</h1>
                         </div>
                     </div>
                 </div>

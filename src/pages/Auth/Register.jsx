@@ -9,8 +9,13 @@ import "../../assets/css/register.css";
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
 import { url } from "../../routes/Utility";
+import { RegisterTermsModal } from "./components";
+import { Modal } from "../../components/Modal";
 
 const Register = () => {
+
+  const [modal, setModal] = useState(false);
+  const [modalContent, setModalContent] = useState({});
 
   const navigate = useNavigate();
 
@@ -64,12 +69,12 @@ const Register = () => {
 
   return (
     <>
-      <div className="container mx-auto w-[500px]">
+      <div className="container mx-auto md:w-[500px]">
         <div
           id="signupsections"
-          className="grid grid-cols-1 md:grid-cols-1 mt-20 "
+          className="grid grid-cols-1 mt-20 mb-28"
         >
-          <div className="signupsection right">
+          <div className="signupsection w-full h-full">
             <h3 id="afterline">Kayıt Ol</h3>
             <div className="signup inputarea">
               <form onSubmit={submitHandle}>
@@ -135,7 +140,7 @@ const Register = () => {
                         done
                       </span>
                     </label>
-                    <p>Şartları kabul ediyorum.</p>
+                    <p className="cursor-pointer" onClick={() => { setModal(true); setModalContent( { element: "identity" } ); }}>Şartları kabul ediyorum.</p>
                   </label>
                 </div>
                 <button 
@@ -162,6 +167,12 @@ const Register = () => {
           </div>
         </div>
       </div>
+      {(Object.keys(modalContent).length !== 0) && (
+        <Modal modal={modal} setModal={setModal} classes={ {modal: 'h-[90vh] max-w-[1140px]'} }>
+            {modalContent.element === "identity" && <RegisterTermsModal classes="!h-[80vh]" /> }
+            
+        </Modal>
+      )}
     </>
   );
 };

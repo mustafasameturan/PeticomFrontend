@@ -18,6 +18,11 @@ const FAQ = () => {
                         </details>
                     
                         <details className="faq__detail">
+                        <summary  className="faq__summary"><span className="faq__question">Nasıl Peticomer olunur?</span></summary>
+                        <p className="faq__text">Web sitemize üye olduktan sonra kullanıcı ayarları kısmından Peticomer olamk için başvuruda bulunabilirsiniz. Başvrun arayalım!</p>
+                        </details>  
+
+                        <details className="faq__detail">
                         <summary  className="faq__summary"><span className="faq__question">Peticomer nasıl doğrulanır ve güvenilir?</span></summary>
                         <p className="faq__text">Web sitesinde, Peticomer olmak için yazılan başvuru metni, önceki müşterilerden gelen yıldızlar ve adres doğruluğunu inceleyecek bir süreç oluyor. 
                         Güvenilirliğini değerlendirmek için ev sahibinin profilini, puanlarını, rozetlerini, ve yaptığı işleri inceleyebilirsiniz.</p>
