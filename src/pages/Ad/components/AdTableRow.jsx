@@ -5,14 +5,21 @@ import { url } from "../../../routes/Utility";
 import { GetUserById } from "../../../services/UserService";
 import { GetPeticomerBadgesByUserId } from "../../../services/PeticomerService";
 import { DefaultProfile } from "../../../assets/img";
+import { AddStar, CalculateStarAverageByAdId, GetStarByUserIdAndAdId } from "../../../services/StarService";
+import "../../../assets/css/star.css"
+import useAuth from "../../../hooks/useAuth";
+import StarComponent from "./StarComponent";
 
 const AdTableRow = (props) => {
 
   const { ad, index, adsLength } = props;
 
   const navigate = useNavigate();
+  const { user } = useAuth();
+
   const [userInformations, setUserInformations] = useState({});
   const [peticomerBadges, setPeticomerBadges] = useState({});
+
 
   const getUserById = async (userId) => {
     const result = await GetUserById(userId);
@@ -90,9 +97,12 @@ const AdTableRow = (props) => {
           </div>
         </div>
       </div>
-      <div className="peticomer-star flex flex-col justify-between">
-        {/* Yıldız eklenecek */}
-        <img className="stars mt-4 mx-auto" alt="" />
+      <div className="peticomer-star flex flex-col items-center justify-between">
+        
+        <div className="my-auto">
+          <StarComponent adId={ad.id} />
+        </div>
+ 
         <div className="text-end mx-auto peticomer-more-button-div">
           <button
             type="submit"
