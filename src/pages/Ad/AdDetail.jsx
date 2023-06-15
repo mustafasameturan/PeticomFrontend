@@ -8,11 +8,15 @@ import { PetIdentityModal } from "./components";
 import { Modal } from "../../components/Modal";
 import { GetAdById } from "../../services/AdService";
 import { GetUserById } from "../../services/UserService";
+import { Input, Button, Loading } from "../../components"
 
 const AdDetail = () => {
  
   const navigate = useNavigate();
   const { adId } = useParams();
+
+  const [loading, setLoading] = useState(true);
+  const [updateLoading, setUpdateLoading] = useState(false);
 
   const [modal, setModal] = useState(false);
   const [modalContent, setModalContent] = useState({});
@@ -61,15 +65,25 @@ const AdDetail = () => {
           </span>
           <h1 className="my-auto text-xl">Önceki İlanlar</h1>
         </div>
-        <div className="resultdetail">
-          <div className="grid grid-cols-3 gap-5">
-            <div className=" pt-10  col-span-1 mx-auto x">
+        <div className="resultdetail mb-40">
+          <div className="md:grid md:grid-cols-3 md:gap-4 p-5">
+            <div className="col-span-1 md:mx-auto addetailleft ">
+              <div className="p-5 grid grid-rows-3">
+                <div className="row-span-2 text-center">
                 <img
                   className="border-r-50 mx-auto !h-[200px] !w-[200px]"
                   src={userInformation.imageUrl}
                   alt=""
                 />
               <h2 className="peticomer-name">{userInformation.fullName}</h2>
+              <p className="text-lg">*Köpek Bakıcısı*</p>
+                </div>
+                <div className="row-span-1">
+                  <div className="flex badges-detail justify-center mt-4">
+                    {/* badges */}
+                  </div>
+                </div>
+              </div>
               <img className="w-60 mx-auto" src="../assets/stars/5.svg" alt="" />
               <div className="flex badges-detail justify-center mt-4">
                 <img className="badge" src="../assets/badges/cat.svg" alt="" />
@@ -84,44 +98,38 @@ const AdDetail = () => {
                   alt=""
                 />
               </div>
-              <div className="pets">
-                <h1>Petleri</h1>
-                <div className="flex peticomer-pets-pic gap-4 justify-center">
-                  <img src={CatPhoto} alt="" className="cursor-pointer" onClick={() => { setModal(true); setModalContent( { element: "identity" } ); }} />
-                  <img src={CatPhoto} alt="" className="cursor-pointer" onClick={() => { setModal(true); setModalContent( { element: "identity" } ); }} />
-                  <img src={CatPhoto} alt="" className="cursor-pointer" onClick={() => { setModal(true); setModalContent( { element: "identity" } ); }} />
-                  <img src={CatPhoto} alt="" className="cursor-pointer" onClick={() => { setModal(true); setModalContent( { element: "identity" } ); }} />
-                </div>
-              </div>
+             
             </div>
-            <div className=" pt-10 pb-10 pl-24 pr-48 col-span-2 mx-auto">
-              <div className="peticomer-bio">
-                <h2 className="text-center">*Kendini Tanıtma Kısmı*</h2>
-                <p>
-                  {adInformation.about}
-                </p>
+
+            <div className="col-span-2 grid grid-rows-4 gap-5">
+              <div className="row-span-1">
+                  <div className="text-center">
+                    <h2 className="font-semibold text-xl">*Kendini Tanıtma Kısmı*</h2>
+                    <p className="text-sm">
+                    {adInformation.about}
+                    </p>
               </div>
-              <div className="peticomer-home-pic">
-                <h2>Fotoğraflar</h2>
-                <div className="flex peticomer-home-pics gap-6 pt-4">
-                  <img src={Picture1} alt="" />
-                  <img src={Picture2} alt="" />
-                </div>
               </div>
-              {/* <div className="review">
-                <h2>Önceki Değerlendirme</h2>
-                <div className="">
-                  <div className="flex reviewer-name-star gap-14">
-                    <h3>Ayşe Naz - Ankara</h3>
-                    <img src="../assets/stars/5.svg" alt="" />
+              <div className="row-span-3">
+                <div className="grid xl:grid-cols-2">
+                  <div className="peticomer-home-pic col-span-1">
+                    <h2>Fotoğraflar</h2>
+                    <div className="flex peticomer-home-pics gap-6 pt-4">
+                      <img src={Picture1} alt="" />
+                      <img src={Picture2} alt="" />
+                    </div>
                   </div>
-                  <li>Biz çok memnun kaldık.</li>
+                  <div className="pets col-span-1 ">
+                <h2 className="text-[25px] mb-4 ">Petleri</h2>
+                <div className="flex peticomer-pets-pic gap-4 justify-start">
+                  <img src={CatPhoto} alt="" className="cursor-pointer" onClick={() => { setModal(true); setModalContent( { element: "identity" } ); }} />
+                  <img src={CatPhoto} alt="" className="cursor-pointer" onClick={() => { setModal(true); setModalContent( { element: "identity" } ); }} />
+                  <img src={CatPhoto} alt="" className="cursor-pointer" onClick={() => { setModal(true); setModalContent( { element: "identity" } ); }} />
+                  <img src={CatPhoto} alt="" className="cursor-pointer" onClick={() => { setModal(true); setModalContent( { element: "identity" } ); }} />
                 </div>
-              </div> */}
-              {/* <div className="review-continue">
-                <button>Devamını Gör</button>
-              </div> */}
-              <div className="price text-end">
+              </div>
+              </div>
+              {/* <div className="price text-end">
                 <div className="text-center">
                   Gecelik
                   <br />
@@ -134,11 +142,31 @@ const AdDetail = () => {
                   <br />
                   Yap
                 </button>
+              </div> */}
+            </div>
+            <div className="row-span-1 price">
+              <h2 className="text-[25px] mb-4">Fiyatlar</h2>
+              <div className="my-auto">
+                <h3>Günlük ₺{adInformation.price}</h3>
+                <div className="text-center mb-5">
+              <Button
+                type="button"
+                text="Rezervasyon Yap"
+                classnames="mt-5 UserSettingsButton !w-36"
+                loading={updateLoading}
+                // action={() => {
+                //   setUpdateLoading(updateLoading => true);
+                //   updateUser();
+                // }}
+              />
+            </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      </div>
+
 
       {(Object.keys(modalContent).length !== 0) && (
         <Modal modal={modal} setModal={setModal} classes={ {modal: 'h-[90vh] max-w-[1140px]'} }>

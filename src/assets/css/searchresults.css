@@ -108,9 +108,9 @@
 }
 
 @media (max-width:1024px){
-    .resultbox{
+    /* .resultbox{
         margin: 0 0!important;
-    }
+    } */
 
     .peticomer-name h2{
         font-size: 27px;
@@ -133,4 +133,20 @@
     }
 
 
+}
+
+@media (max-width:768px){
+    .resultbox{
+        width: 20rem ;
+    }
+    .peticomer-name h2{
+        width: 13rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .peticomer-name p{
+        width: 10rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

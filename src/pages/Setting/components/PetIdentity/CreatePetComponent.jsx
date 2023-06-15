@@ -78,7 +78,7 @@ const CreatePetComponent = () => {
   return (
     <div className="">
       <div className="settingrightsizes">
-        <div className="flex flex-row items-center justify-between pb-4">
+        <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
           <label
             htmlFor="petname"
             className="mr-[218px] mb-1 text-lg font-medium"
@@ -92,7 +92,7 @@ const CreatePetComponent = () => {
             setState={setPetName}
           />
         </div>
-        <div className="flex flex-row items-center justify-between pb-4">
+        <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
           <label
             htmlFor="petgender"
             className="mr-[218px] mb-1 text-lg font-medium"
@@ -107,7 +107,7 @@ const CreatePetComponent = () => {
             />
           </div>
         </div>
-        <div className="flex flex-row items-center justify-between pb-4">
+        <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
           <label
             htmlFor="petkind"
             className="mr-[218px] mb-1 text-lg font-medium"
@@ -121,7 +121,7 @@ const CreatePetComponent = () => {
             setState={setPetBreed}
           />
         </div>
-        <div className="flex flex-row items-center justify-between pb-4">
+        <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
           <label
             htmlFor="petcolor"
             className="mr-[218px] mb-1 text-lg font-medium"
@@ -135,7 +135,7 @@ const CreatePetComponent = () => {
             setState={setColor}
           />
         </div>
-        <div className="flex flex-row items-center justify-between pb-4">
+        <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
           <label
             htmlFor="petbday"
             className="mr-[218px] mb-1 text-lg font-medium"
@@ -149,7 +149,7 @@ const CreatePetComponent = () => {
             setState={setBirthDate}
           />
         </div>
-        <div className="flex flex-row items-center justify-between pb-4">
+        <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
           <label
             htmlFor="petgender"
             className="mr-[218px] mb-1 text-lg font-medium"
@@ -164,7 +164,7 @@ const CreatePetComponent = () => {
             />
           </div>
         </div>
-        <div className="flex flex-row items-center justify-between pb-4">
+        <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
           <label
             htmlFor="petfood"
             className="mr-[218px] mb-1 text-lg font-medium"
@@ -178,7 +178,7 @@ const CreatePetComponent = () => {
             setState={setFood}
           />
         </div>
-        <div className="flex flex-row items-center justify-between pb-4">
+        <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
           <label
             htmlFor="petlit"
             className="mr-[218px] mb-1 text-lg font-medium"
@@ -192,7 +192,7 @@ const CreatePetComponent = () => {
             setState={setLitter}
           />
         </div>
-        <div className="flex flex-row items-center justify-between pb-4">
+        <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
           <label
             htmlFor="petlastinst"
             className="mr-[218px] mb-1 text-lg font-medium"

@@ -83,7 +83,7 @@ const VaccinesComponent = () => {
       </div>
       <div>
         <div className="settingrightsizes">
-          <div className="flex flex-row items-center justify-between pb-4">
+          <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
             <label
               htmlFor="petchoose"
               className="mr-[218px] mb-1 text-lg font-medium"
@@ -102,7 +102,7 @@ const VaccinesComponent = () => {
             </div>
 
           </div>
-          <div className="flex flex-row items-center justify-between pb-4">
+          <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
             <label
               htmlFor="vacname"
               className="mr-[218px] mb-1 text-lg font-medium"
@@ -117,7 +117,7 @@ const VaccinesComponent = () => {
               setState={setName}
             />
           </div>
-          <div className="flex flex-row items-center justify-between pb-4">
+          <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
             <label
               htmlFor="vacdate"
               className="mr-[218px] mb-1 text-lg font-medium"
@@ -132,7 +132,7 @@ const VaccinesComponent = () => {
               setState={setVaccineDate}
             />
           </div>
-          <div className="flex flex-row items-center justify-between pb-4">
+          <div className="flex md:flex-row flex-col md:items-center items-start justify-between pb-4">
             <label
               htmlFor="vacperiod"
               className="mr-[218px] mb-1 text-lg font-medium"

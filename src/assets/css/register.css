@@ -23,7 +23,7 @@
     background-color: rgba(0, 0, 0, .5);
     content: "";
     height: 1px;
-    width: 400px;
+    width:auto;
     display: block;
 }
 
@@ -133,9 +133,6 @@ height: 2.2rem;
     }
     .termbox{
         padding-left: 2.5rem;
-    }
-    #afterline::after{
-        display: none;
     }
 }
 

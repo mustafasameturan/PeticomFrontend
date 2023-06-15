@@ -1,7 +1,9 @@
 .resultdetail{
-    border-radius: 114px;
-    border: 1px black solid;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
 
+.addetailleft{
+    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
 }
 
 .border-r-50{
@@ -20,14 +22,14 @@
     gap: 3px;
 
 }
-.pets::before{
+/* .pets::before{
     margin-top: 1rem;
     background-color: rgba(0, 0, 0, .5);
     content: "";
     height: 1px;
     width: 500px;
     display: block;
-}
+} */
 
 .pets h1{
     color:rgba(255, 121, 46, .8);
@@ -63,6 +65,26 @@
 }
 
 .peticomer-home-pic h2::after{
+    margin-top: 1rem;
+    background-color: rgba(0, 0, 0);
+    content: "";
+    height: 2px;
+    width: 125px;
+    display: block;
+    margin-top: 0px;
+}
+
+.pets h2::after{
+    margin-top: 1rem;
+    background-color: rgba(0, 0, 0);
+    content: "";
+    height: 2px;
+    width: 125px;
+    display: block;
+    margin-top: 0px;
+}
+
+.price h2::after{
     margin-top: 1rem;
     background-color: rgba(0, 0, 0);
     content: "";
@@ -114,11 +136,6 @@
     bottom: 180px;
 }
 
-.price{
-    position: absolute;
-    right: 194px;
-    bottom: 700px;     
-}
 
 .rezervation button{
     background-color: #FF813A;
@@ -126,17 +143,6 @@
     border-bottom-right-radius: 100px;
     border-top-left-radius: 100px;
     /* padding-bottom: 40px;  */
-    height: 100px;
-    font-size: 20px;
-    width: 273px;
-    font-weight:bold;
-}
-
-.price div{
-    background-color: #FF813A;
-    color:white;
-    border-bottom-left-radius: 100px;
-    border-top-right-radius: 100px;
     height: 100px;
     font-size: 20px;
     width: 273px;
