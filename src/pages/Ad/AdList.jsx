@@ -45,6 +45,7 @@ const AdList = () => {
   useEffect(() => {
     if (totalRecord !== 0) {
       getAdsByFilter();
+      
     }
   }, [start])
 
