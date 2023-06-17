@@ -64,8 +64,18 @@ const BadgeSelector = () => {
         pet: petOwner,
         garden: garden
       };
-      console.log(model);
-      const result = await (isBadgeCreated ? UpdatePeticomerBadges(model) : AddPeticomerBadges(model));
+
+      let updateModel = {
+        id: badgeInformations.id,
+        userId: user.UserId,
+        cigaret: nonCigaratte,
+        car: carOwner,
+        carDistance: carOwner ? +carDistance : null,
+        pet: petOwner,
+        garden: garden
+      }
+      
+      const result = await (isBadgeCreated ? UpdatePeticomerBadges(updateModel) : AddPeticomerBadges(model));
       console.log(result);
       if(result.statusCode === 200){
         setLoading(loading => false);
