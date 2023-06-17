@@ -4,12 +4,22 @@ import { CatPhoto, Picture1, Picture2 } from "../../assets/img";
 import { useNavigate, useParams } from "react-router-dom";
 import { url } from "../../routes/Utility";
 import useAuth from "../../hooks/useAuth";
-import { PetIdentityModal, PetPictureComponent, StarComponent } from "./components";
+import {
+  PetIdentityModal,
+  PetPictureComponent,
+  StarComponent,
+} from "./components";
 import { Modal } from "../../components/Modal";
 import { GetAdById } from "../../services/AdService";
 import { GetUserById } from "../../services/UserService";
 import { Input, Button, Loading } from "../../components";
-import { Car, CarDistance, Garden, Handshake, SmokeFree } from "../../assets/svg";
+import {
+  Car,
+  CarDistance,
+  Garden,
+  Handshake,
+  SmokeFree,
+} from "../../assets/svg";
 import { GetPeticomerBadgesByUserId } from "../../services/PeticomerBadgesService";
 import { GetPetFullIdentitiesByUserId } from "../../services/PetIdentityService";
 import ReservationModal from "./components/ReservationModal";
@@ -26,6 +36,7 @@ const AdDetail = () => {
   const [userInformation, setUserInformation] = useState({});
   const [peticomerBadges, setPeticomerBadges] = useState({});
   const [petIdentities, setPetIdentities] = useState([]);
+  console.log(peticomerBadges);
 
   const getAdById = async (adId) => {
     const response = await GetAdById(adId);
@@ -37,7 +48,7 @@ const AdDetail = () => {
 
   const getUserById = async (userId) => {
     const response = await GetUserById(userId);
-    
+
     if (response.statusCode === 200) {
       setUserInformation((userInformation) => response.data);
     }
@@ -46,23 +57,22 @@ const AdDetail = () => {
   const getPeticomerBadgesByUserId = async (userId) => {
     const result = await GetPeticomerBadgesByUserId(userId);
 
-    if(result.statusCode === 200){
-      setPeticomerBadges(peticomerBadges => result.data[0]);
+    if (result.statusCode === 200) {
+      setPeticomerBadges((peticomerBadges) => result.data[0]);
     }
-  }
+  };
 
   const getPetIdentitiesByUserId = async (userId) => {
+    const response = await GetPetFullIdentitiesByUserId(userId);
 
-      const response = await GetPetFullIdentitiesByUserId(userId);
-
-      if(response.statusCode === 200){
-          setPetIdentities(petIdentities => response.data);
-      }
-  }
+    if (response.statusCode === 200) {
+      setPetIdentities((petIdentities) => response.data);
+    }
+  };
 
   const closeButton = () => {
-    setModal(modal => false);
-  }
+    setModal((modal) => false);
+  };
 
   useEffect(() => {
     if (adId) {
@@ -99,13 +109,14 @@ const AdDetail = () => {
                     alt=""
                   />
                   <h2 className="peticomer-name">{userInformation.fullName}</h2>
-                  <p className="text-lg">*{adInformation.petType === 0 ? 'Kedi' : 'Köpek'} Bakıcısı*</p>
-                  <p>*{adInformation.cityId === 1 ? 'Ankara' : 'İstanbul'}*</p>
+                  <p className="text-lg">
+                    *{adInformation.petType === 0 ? "Kedi" : "Köpek"} Bakıcısı*
+                  </p>
+                  <p>*{adInformation.cityId === 1 ? "Ankara" : "İstanbul"}*</p>
                 </div>
                 <div className="row-span-1">
                   {" "}
                   <div className="badges flex gap-5 mt-7 justify-center">
-
                     <div className="group relative">
                       <img
                         className={`dblock ${
@@ -145,21 +156,24 @@ const AdDetail = () => {
                       </div>
                     </div>
 
-                    <div className="group relative">
-                      <img
-                        className={`dblock ${
-                          peticomerBadges.carDistance !== 0 ? "" : "hidden"
-                        }`}
-                        src={CarDistance}
-                        alt="Arabası Var"
-                      />
-                      <div className="tooltip-top">
-                        <p className="">
-                          {peticomerBadges.carDistance} KM Kadar Uzağa
-                          Gelebilirim
-                        </p>
-                      </div>
-                    </div>
+                    {Object.keys(peticomerBadges).length > 0 &&
+                      peticomerBadges.car === true && (
+                        <div className="group relative">
+                          <img
+                            className={`dblock ${
+                              peticomerBadges.carDistance !== 0 ? "" : "hidden"
+                            }`}
+                            src={CarDistance}
+                            alt="Arabası Var"
+                          />
+                          <div className="tooltip-top">
+                            <p className="">
+                              {peticomerBadges.carDistance} KM Kadar Uzağa
+                              Gelebilirim
+                            </p>
+                          </div>
+                        </div>
+                      )}
 
                     <div className="group relative">
                       <img
@@ -205,11 +219,16 @@ const AdDetail = () => {
                     {petIdentities.length > 0 ? (
                       <div className="flex peticomer-pets-pic gap-4 justify-start">
                         {petIdentities.map((identity, index) => (
-                          <PetPictureComponent key={index} identity={identity} />
+                          <PetPictureComponent
+                            key={index}
+                            identity={identity}
+                          />
                         ))}
                       </div>
                     ) : (
-                      <p className="text-center">Herhangi bir pet bulunamadı!</p>
+                      <p className="text-center">
+                        Herhangi bir pet bulunamadı!
+                      </p>
                     )}
                   </div>
                 </div>
@@ -233,13 +252,22 @@ const AdDetail = () => {
                 <div className="my-auto">
                   <h3>Günlük ₺{adInformation.price}</h3>
                   <div className="text-center mb-5">
-                    <div className={`${token.length === 0 ? "relative group" : ""}`}>
+                    <div
+                      className={`${
+                        token.length === 0 ? "relative group" : ""
+                      }`}
+                    >
                       <Button
                         type="button"
                         text="Rezervasyon Yap"
-                        classnames={`UserSettingsButton !w-36 ${token.length === 0 ? "cursor-not-allowed" : ""}`}
+                        classnames={`UserSettingsButton !w-36 ${
+                          token.length === 0 ? "cursor-not-allowed" : ""
+                        }`}
                         isDisabled={token.length === 0 ? true : false}
-                        action={() => { setModal(true); setModalContent( { element: "reservation" } ); }}
+                        action={() => {
+                          setModal(true);
+                          setModalContent({ element: "reservation" });
+                        }}
                       />
                       {token.length === 0 && (
                         <div className="tooltip-top top-[200px]">
@@ -255,16 +283,20 @@ const AdDetail = () => {
         </div>
       </div>
 
-      {(Object.keys(modalContent).length !== 0) && (
-        <Modal modal={modal} setModal={setModal} classes={ {modal: '!h-[75vh] max-w-[600px]'} }>
-            {modalContent.element === "reservation" && 
-              <ReservationModal 
-                adId={adId} 
-                peticomerId={adInformation.userId}
-                price={adInformation.price}
-                closeButton={closeButton}
-              /> 
-            }    
+      {Object.keys(modalContent).length !== 0 && (
+        <Modal
+          modal={modal}
+          setModal={setModal}
+          classes={{ modal: "!h-[75vh] max-w-[600px]" }}
+        >
+          {modalContent.element === "reservation" && (
+            <ReservationModal
+              adId={adId}
+              peticomerId={adInformation.userId}
+              price={adInformation.price}
+              closeButton={closeButton}
+            />
+          )}
         </Modal>
       )}
     </>

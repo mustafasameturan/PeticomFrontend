@@ -81,12 +81,14 @@ const AdTableRow = (props) => {
             </div>
           </div>
 
-          <div className="group relative">
-            <img className={`dblock ${peticomerBadges.carDistance !== 0 ? '' : 'hidden'}`} src={CarDistance} alt="Arabası Var" />
-            <div className="tooltip-top">
-              <p className="">{peticomerBadges.carDistance} KM Kadar Uzağa Gelebilirim</p>
+          {(Object.keys(peticomerBadges).length > 0 && peticomerBadges.car === true) && (
+            <div className="group relative">
+              <img className={`dblock ${peticomerBadges.carDistance !== 0 ? '' : 'hidden'}`} src={CarDistance} alt="Arabası Var" />
+              <div className="tooltip-top">
+                <p className="">{peticomerBadges.carDistance} KM Kadar Uzağa Gelebilirim</p>
+              </div>
             </div>
-          </div>
+          )}
 
           <div className="group relative">
             <img className={`dblock ${peticomerBadges.garden ? '' : 'hidden'}`} src={Garden} alt="Bahçem Var" />
