@@ -2,10 +2,6 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.addetailleft{
-    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
-}
-
 .border-r-50{
     border-radius: 50%;
 }
@@ -22,14 +18,6 @@
     gap: 3px;
 
 }
-/* .pets::before{
-    margin-top: 1rem;
-    background-color: rgba(0, 0, 0, .5);
-    content: "";
-    height: 1px;
-    width: 500px;
-    display: block;
-} */
 
 .pets h1{
     color:rgba(255, 121, 46, .8);
@@ -131,7 +119,6 @@
 
 .rezervation{
     position:absolute;
-    /* rotate: -45deg; */
     right: 194px;
     bottom: 180px;
 }
@@ -142,7 +129,6 @@
     color:white;
     border-bottom-right-radius: 100px;
     border-top-left-radius: 100px;
-    /* padding-bottom: 40px;  */
     height: 100px;
     font-size: 20px;
     width: 273px;

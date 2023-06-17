@@ -21,9 +21,7 @@
 
 .settingsright{
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    /* height: 70vh; */
     height: max-content;
-    /* border: 1px solid black; */
 }
 
 .UserSettingsButton{

@@ -14,12 +14,9 @@ html{
 }
 
 .button{
-    /* background-color: #F3F3F3; */
     background-color: white;
     font-size: 1.2rem;
     padding: 1rem 0 1rem 0;
-    
-     
 }
 
 
@@ -43,14 +40,6 @@ html{
 }
 
 @media (max-width: 768px){
-    /* .r-multi-button{
-        justify-self: flex-end;
-    } */
-
-    /* .m-nav{
-        justify-content: center;  
-    } */
-
     .button.left{
         display: none;
     }

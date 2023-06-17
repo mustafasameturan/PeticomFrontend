@@ -1,6 +1,6 @@
 :root {
     
-    /* colors */
+    
     --purple: #7276e1;
     --orange: hsl(14, 88%, 65%);
     --blue-dark: hsl(238, 29%, 16%);
@@ -18,8 +18,6 @@
 }
 
 .attribution a { color:#fff; }
-
-/* * { box-sizing: border-box; } */
 
 .faq__question {
     font-size: 16px;

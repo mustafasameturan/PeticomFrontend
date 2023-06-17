@@ -42,16 +42,10 @@
     background-image: url(../svg/others/caret-down-solid.svg); 
     background-repeat: no-repeat;
     background-position:right 0.8rem top;
-    /* padding-right: 20px;  */
     border: none;
     overflow: hidden;
     outline: none;
 }
-
-/* .searcharea{
-    margin-left: 5rem;
-    
-} */
 
 .searcharea from{
     overflow: hidden;
@@ -61,7 +55,6 @@
     padding: 0.5rem 33rem 0.5rem 2rem;
     font-size: 1.5rem;    
     outline: none;
-    /* margin-left: 2rem; */
 }
 
 @media (max-width:1490px){

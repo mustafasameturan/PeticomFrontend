@@ -1,7 +1,4 @@
 .resultbox{
-    /* background-color: #F3F3F3;
-    border: black 1px solid;
-    border-radius: 25px; */
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
@@ -26,7 +23,6 @@
     background-image: url(../svg/others/caret-down-solid.svg); 
     background-repeat: no-repeat;
     background-position:right 0.8rem top;
-    /* padding-right: 20px;  */
     overflow: hidden;
     border: black 1px solid;
 }
@@ -109,10 +105,6 @@
 }
 
 @media (max-width:1024px){
-    /* .resultbox{
-        margin: 0 0!important;
-    } */
-
     .peticomer-name h2{
         font-size: 27px;
     }
