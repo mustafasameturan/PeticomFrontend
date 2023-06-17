@@ -105,7 +105,7 @@ const AdDetail = () => {
                 <div className="row-span-3 text-center">
                   <img
                     className="border-r-50 mx-auto !h-[200px] !w-[200px]"
-                    src={userInformation.imageUrl.lenght > 0 ? userInformation.imageUrl : DefaultProfile}
+                    src={userInformation.imageUrl}
                     alt=""
                   />
                   <h2 className="peticomer-name">{userInformation.fullName}</h2>
