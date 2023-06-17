@@ -57,7 +57,6 @@ const BadgeSelector = () => {
 
     if(valid){
       let model = {
-        id: isBadgeCreated ? badgeInformations.id : "",
         userId: user.UserId,
         cigaret: nonCigaratte,
         car: carOwner,
@@ -65,9 +64,9 @@ const BadgeSelector = () => {
         pet: petOwner,
         garden: garden
       };
-
+      console.log(model);
       const result = await (isBadgeCreated ? UpdatePeticomerBadges(model) : AddPeticomerBadges(model));
-
+      console.log(result);
       if(result.statusCode === 200){
         setLoading(loading => false);
         ToastSuccess(isBadgeCreated ? "Rozetler başarıyla güncellendi!" : "Rozetler başarıyla oluşturuldu!");
