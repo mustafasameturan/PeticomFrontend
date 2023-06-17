@@ -53,6 +53,7 @@ const AdList = () => {
     const filter = JSON.parse(localStorage.getItem("filter"));
     
     setDetailSearch({ searchText: filter.searchText, city: filter.city, order: order, type: filter.type });
+    
   }, [location, order]);
 
   useEffect(() => {
