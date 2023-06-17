@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../../assets/css/mainsearch.css";
 import { Select } from "../../../components";
 import { Cities } from "../../../components/Constants";
@@ -12,6 +12,10 @@ const MainSearchBar = () => {
   const [selectedCity, setSelectedCity] = useState(-1);
   const [searchText, setSearchText] = useState("");
   const [selectedType, setSelectedType] = useState(-1);
+
+  useEffect(() => {
+    localStorage.removeItem("filter");
+  }, [])
 
   return (
     <div className="mainsearch md:p-16 relative md:mx-80 mx-auto ">
@@ -47,7 +51,10 @@ const MainSearchBar = () => {
             <button 
               type="submit" 
               className="searchbutton"
-              onClick={() => { navigate(url("ad"), { state: { city: selectedCity, searchText: searchText, type: selectedType }})}}
+              onClick={() => { 
+                navigate(url("ad"));
+                localStorage.setItem("filter", JSON.stringify({ city: selectedCity, searchText: searchText, type: selectedType }))
+              }}
             >
               <i className="fa-sharp fa-solid fa-magnifying-glass"></i>
             </button>

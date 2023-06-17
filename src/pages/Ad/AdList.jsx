@@ -30,7 +30,7 @@ const AdList = () => {
       search: !detailSearch.searchText ? "" : detailSearch.searchText,
       cityId: !detailSearch.city ? -1 : detailSearch.city,
       order: !detailSearch.order ? -1 : detailSearch.order,
-      type: detailSearch.type === -1 ? null : !detailSearch.type ? null : detailSearch.type
+      type: detailSearch.type === -1 ? null : detailSearch.type
     };
     
     const result = await GetAdsByFilter(model);
@@ -49,11 +49,9 @@ const AdList = () => {
   }, [start])
 
   useEffect(() => {
-    const city = location?.state?.city || false;
-    const searchText = location?.state?.searchText || false;
-    const type = location?.state?.type || false;
-
-    setDetailSearch({ searchText: searchText, city: city, order: order, type: type });
+    const filter = JSON.parse(localStorage.getItem("filter"));
+    
+    setDetailSearch({ searchText: filter.searchText, city: filter.city, order: order, type: filter.type });
   }, [location, order]);
 
   useEffect(() => {

@@ -99,7 +99,8 @@ const AdDetail = () => {
                     alt=""
                   />
                   <h2 className="peticomer-name">{userInformation.fullName}</h2>
-                  <p className="text-lg">*Köpek Bakıcısı*</p>
+                  <p className="text-lg">*{adInformation.petType === 0 ? 'Kedi' : 'Köpek'} Bakıcısı*</p>
+                  <p>*{adInformation.cityId === 1 ? 'Ankara' : 'İstanbul'}*</p>
                 </div>
                 <div className="row-span-1">
                   {" "}
