@@ -8,10 +8,12 @@ import useAuth from "../../../hooks/useAuth";
 import "../../../assets/css/star.css";
 
 const StarComponent = ({ adId }) => {
-  const { user } = useAuth();
+  const { user, token } = useAuth();
 
-  const [isHaveStar, setIsHaveStar] = useState(false);
   const [star, setStar] = useState(null);
+  const [isHaveStar, setIsHaveStar] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isStarDisabled, setIsStarDisabled] = useState(false);
 
   const getStarAverageByAdId = async (adId) => {
     const result = await CalculateStarAverageByAdId(adId);
@@ -31,6 +33,12 @@ const StarComponent = ({ adId }) => {
     }
   };
 
+  const sendRequestToGetStarsByUserAndAdIdEndpoint = () => {
+    if(user.UserId && adId){
+      getStarsByUserIdAndAdId(user.UserId, adId);
+    }
+  }
+
   const addStar = async (star) => {
     let model = {
       userId: user.UserId,
@@ -39,23 +47,35 @@ const StarComponent = ({ adId }) => {
     };
 
     await AddStar(model);
+    sendRequestToGetStarsByUserAndAdIdEndpoint();
   };
 
   useEffect(() => {
     if (user.UserId && adId) {
-      getStarsByUserIdAndAdId(user.UserId, adId);
-      getStarAverageByAdId(adId);
+      sendRequestToGetStarsByUserAndAdIdEndpoint();
     }
+    getStarAverageByAdId(adId);
   }, [adId]);
+
+  useEffect(() => {
+    if(token.length === 0){
+      setIsStarDisabled(isStarDisabled => true);
+    }
+  }, [token])
+
+  useEffect(() => {
+    if (isHaveStar) {
+      setIsStarDisabled(true);
+    }
+  }, [isHaveStar, isLoggedIn]);
+  
 
   return (
       <div className="star-rating mt-2">
-        <div className="star-rating__stars disabled">
+        <div className={`star-rating__stars ${isStarDisabled ? 'pointer-events-none' : ''}`}>
           <input
             id={`1-${adId.split("-")[0]}`}
-            className={`star-rating__input ${
-              isHaveStar ? "pointer-events-none" : ""
-            }`}
+            className="star-rating__input"
             type="radio"
             name={`rating-${adId.split("-")[0]}`}
             value="1"
@@ -65,16 +85,14 @@ const StarComponent = ({ adId }) => {
             onClick={() => addStar(1)}
           />
           <label
-            className="star-rating__label"
+            className={`star-rating__label ${(isStarDisabled) ? 'disabled' : ''}`}
             htmlFor={`1-${adId.split("-")[0]}`}
             aria-label="One"
           ></label>
 
           <input
             id={`2-${adId.split("-")[0]}`}
-            className={`star-rating__input ${
-              isHaveStar ? "pointer-events-none " : ""
-            }`}
+            className="star-rating__input"
             type="radio"
             name={`rating-${adId.split("-")[0]}`}
             value="2"
@@ -84,16 +102,14 @@ const StarComponent = ({ adId }) => {
             onClick={() => addStar(2)}
           />
           <label
-            className="star-rating__label"
+            className={`star-rating__label ${(isStarDisabled) ? 'disabled' : ''}`}
             htmlFor={`2-${adId.split("-")[0]}`}
             aria-label="Two"
           ></label>
 
           <input
             id={`3-${adId.split("-")[0]}`}
-            className={`star-rating__input ${
-              isHaveStar ? "pointer-events-none " : ""
-            }`}
+            className="star-rating__input"
             type="radio"
             name={`rating-${adId.split("-")[0]}`}
             value="3"
@@ -103,16 +119,14 @@ const StarComponent = ({ adId }) => {
             onClick={() => addStar(3)}
           />
           <label
-            className="star-rating__label"
+            className={`star-rating__label ${(isStarDisabled) ? 'disabled' : ''}`}
             htmlFor={`3-${adId.split("-")[0]}`}
             aria-label="Three"
           ></label>
 
           <input
             id={`4-${adId.split("-")[0]}`}
-            className={`star-rating__input ${
-              isHaveStar ? "pointer-events-none " : ""
-            }`}
+            className="star-rating__input"
             type="radio"
             name={`rating-${adId.split("-")[0]}`}
             value="4"
@@ -122,16 +136,14 @@ const StarComponent = ({ adId }) => {
             onClick={() => addStar(4)}
           />
           <label
-            className="star-rating__label"
+            className={`star-rating__label ${(isStarDisabled) ? 'disabled' : ''}`}
             htmlFor={`4-${adId.split("-")[0]}`}
             aria-label="Four"
           ></label>
 
           <input
             id={`5-${adId.split("-")[0]}`}
-            className={`star-rating__input ${
-              isHaveStar ? "pointer-events-none " : ""
-            }`}
+            className="star-rating__input"
             type="radio"
             name={`rating-${adId.split("-")[0]}`}
             value="5"
@@ -141,7 +153,7 @@ const StarComponent = ({ adId }) => {
             onClick={() => addStar(5)}
           />
           <label
-            className="star-rating__label"
+            className={`star-rating__label ${(isStarDisabled) ? 'disabled' : ''}`}
             htmlFor={`5-${adId.split("-")[0]}`}
             aria-label="Five"
           ></label>

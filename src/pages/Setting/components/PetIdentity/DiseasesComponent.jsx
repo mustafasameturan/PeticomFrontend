@@ -43,7 +43,7 @@ const DiseasesComponent = () => {
       };
 
       const response = await CreatePetDisease(model);
-      console.log(response);
+      
       if (response.statusCode === 200) {
         ToastSuccess(`Pet için hastalık bilgisi başarıyla eklendi!`);
         setTimeout(() => {

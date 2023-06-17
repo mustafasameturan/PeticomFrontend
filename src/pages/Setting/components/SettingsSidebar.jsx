@@ -86,7 +86,7 @@ const SettingsSidebar = () => {
             onClick={() => navigate(url("settings.badge"))}
           >
             <div className="p-5 ">
-              <h2>Badge Ekle</h2>
+              <h2>Rozet Ekle / Güncelle</h2>
             </div>
           </div>
           <div

@@ -31,6 +31,13 @@ export const GetPetIdentitiesSelectListByUserIdService = async (userId) => {
     return await apiRequest(url, method);
 }
 
+export const IsPeticomerHavePetService = async (userId) => {
+    const url = `/petIdentities/isPeticomerHavePet?userId=${userId}`
+    const method = 'GET';
+    
+    return await apiRequest(url, method);
+}
+
 export const CreatePetVaccine = async (model) => {
     const url = '/petVaccines/add';
     const method = 'POST';

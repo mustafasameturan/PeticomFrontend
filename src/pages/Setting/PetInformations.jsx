@@ -3,10 +3,13 @@ import useAuth from "../../hooks/useAuth";
 import { GetPetFullIdentitiesByUserId } from "../../services/PetIdentityService";
 import { PetInformationComponent } from "./components";
 import { Loading } from "../../components";
+import { useNavigate } from "react-router-dom";
+import { url } from "../../routes/Utility";
 
 const PetInformations = () => {
 
     const { user } = useAuth();
+    const navigate = useNavigate();
 
     const [petIdentities, setPetIdentities] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -17,8 +20,8 @@ const PetInformations = () => {
 
         if(response.statusCode === 200){
             setPetIdentities(petIdentities => response.data);
-            setLoading(loading => false);
         }
+        setLoading(loading => false);
     }
 
     useEffect(() => {
@@ -49,10 +52,10 @@ const PetInformations = () => {
                                     <PetInformationComponent key={index} identity={identity}/>
                                 ))
                             ) : (
-                                <>
+                                <div className="flex flex-col text-center gap-2">
                                     <p>Herhangi bir kayıt bulunamadı!</p>
-                                    <p>Pet eklemek için tıklayın!</p>
-                                </>
+                                    <p onClick={() => {navigate(url("settings.petidentity"))}} className="hover:text-orange cursor-pointer">Pet eklemek için tıklayın!</p>
+                                </div>
                             )}
                         </div>
                     </div>

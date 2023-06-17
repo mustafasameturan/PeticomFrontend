@@ -13,8 +13,6 @@ const MainSearchBar = () => {
   const [searchText, setSearchText] = useState("");
   const [selectedType, setSelectedType] = useState(-1);
 
-  console.log(selectedType);
-
   return (
     <div className="mainsearch md:p-16 relative md:mx-80 mx-auto ">
       <div className="main-upper-multi-button flex justify-between mx search">
@@ -49,7 +47,7 @@ const MainSearchBar = () => {
             <button 
               type="submit" 
               className="searchbutton"
-              onClick={() => { navigate(url("ad"), { state: { city: selectedCity, searchText: searchText }})}}
+              onClick={() => { navigate(url("ad"), { state: { city: selectedCity, searchText: searchText, type: selectedType }})}}
             >
               <i className="fa-sharp fa-solid fa-magnifying-glass"></i>
             </button>

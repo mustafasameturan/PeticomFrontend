@@ -53,8 +53,8 @@ const VaccinesComponent = () => {
       };
 
       const response = await CreatePetVaccine(model);
-      console.log(response);
       if(response.statusCode === 200){
+        
         ToastSuccess(`Pet için aşı bilgisi başarıyla eklendi!`);
         setTimeout(() => { window.location.reload(); }, 2000);
       } else {

@@ -46,8 +46,6 @@ const UserProfileSettings = () => {
 
     const result = await UpdateUser(model);
 
-    console.log(result);
-
     if(result.statusCode === 200){
       ToastSuccess("Kullanıcı başarıyla güncellendi!");
       window.location.reload();
