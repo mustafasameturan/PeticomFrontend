@@ -169,6 +169,12 @@ const routes = [
                 element: <BadgeSelector/>
             }
         ]
+    },
+    {
+        name: "error404",
+        path: "*",
+        auth: false,
+        element: <NotFound />
     }
 ];
 

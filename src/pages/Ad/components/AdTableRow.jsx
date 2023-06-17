@@ -20,7 +20,6 @@ const AdTableRow = (props) => {
   const [userInformations, setUserInformations] = useState({});
   const [peticomerBadges, setPeticomerBadges] = useState({});
 
-
   const getUserById = async (userId) => {
     const result = await GetUserById(userId);
 

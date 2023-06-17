@@ -3,8 +3,6 @@ import { ISOStringToDate2 } from "../../../../components/Utility";
 
 const PetInformationModal = ({ identity }) => {
 
-  console.log(identity);
-
   return (
     <div>
       <div className="border-b border-gray-200">

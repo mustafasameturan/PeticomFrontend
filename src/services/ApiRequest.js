@@ -12,6 +12,6 @@ export const apiRequest = (endpoint, method, payload = null) => {
     })
     .then(response => response.data)
     .catch(error => {
-        return error.response.data;
+        
     });
 };

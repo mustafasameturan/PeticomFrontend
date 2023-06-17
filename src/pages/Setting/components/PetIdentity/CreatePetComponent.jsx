@@ -59,8 +59,6 @@ const CreatePetComponent = () => {
         
         const response = await CreatePetIdentityService(model);
 
-        console.log(response);
-
         if(response.statusCode === 200){
             ToastSuccess("Pet başarıyla oluşturuldu!");
             setTimeout(() => window.location.reload() ,2000);

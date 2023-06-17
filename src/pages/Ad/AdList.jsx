@@ -19,18 +19,20 @@ const AdList = () => {
   const [detailSearch, setDetailSearch] = useState({
     city: -1,
     searchText: "",
-    order: -1
+    order: -1,
+    type: -1
   });
 
   const getAdsByFilter = async () => {
     const model = {
       start: start,
       limit: limit,
-      search: detailSearch.searchText,
-      cityId: detailSearch.city,
-      order: detailSearch.order
+      search: !detailSearch.searchText ? "" : detailSearch.searchText,
+      cityId: !detailSearch.city ? -1 : detailSearch.city,
+      order: !detailSearch.order ? -1 : detailSearch.order,
+      type: detailSearch.type === -1 ? null : !detailSearch.type ? null : detailSearch.type
     };
-
+    
     const result = await GetAdsByFilter(model);
 
     if (result.statusCode === 200) {
@@ -47,10 +49,11 @@ const AdList = () => {
   }, [start])
 
   useEffect(() => {
-    const city = location?.state?.city;
-    const searchText = location?.state?.searchText;
+    const city = location?.state?.city || false;
+    const searchText = location?.state?.searchText || false;
+    const type = location?.state?.type || false;
 
-    setDetailSearch({ searchText: searchText, city: city, order: order });
+    setDetailSearch({ searchText: searchText, city: city, order: order, type: type });
   }, [location, order]);
 
   useEffect(() => {

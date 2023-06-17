@@ -1,11 +1,12 @@
 .resultbox{
-    background-color: #F3F3F3;
+    /* background-color: #F3F3F3;
     border: black 1px solid;
-    border-radius: 25px;
+    border-radius: 25px; */
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .resultbox:hover{
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .result-text{

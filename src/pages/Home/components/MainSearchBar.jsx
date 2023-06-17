@@ -13,8 +13,6 @@ const MainSearchBar = () => {
   const [searchText, setSearchText] = useState("");
   const [selectedType, setSelectedType] = useState(-1);
 
-  console.log(selectedType);
-
   return (
     <div className="mainsearch relative">
       <div className="main-upper-multi-button flex justify-between search">
@@ -44,12 +42,12 @@ const MainSearchBar = () => {
           />
         </div>
         <div className="searcharea">
-          <form action="search" method="get">
+          <form>
             <input type="text" id="search" placeholder="Ara..." onChange={(e) => setSearchText(e.target.value)} />
             <button 
               type="submit" 
               className="searchbutton"
-              onClick={() => { navigate(url("ad"), { state: { city: selectedCity, searchText: searchText }})}}
+              onClick={() => { navigate(url("ad"), { state: { city: selectedCity, searchText: searchText, type: selectedType }})}}
             >
               <i className="fa-sharp fa-solid fa-magnifying-glass"></i>
             </button>

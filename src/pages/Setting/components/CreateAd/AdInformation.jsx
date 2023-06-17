@@ -24,7 +24,6 @@ const AdInformation = () => {
   const deleteAd = async (adId) => {
     const response = await DeleteAd(adId);
 
-    console.log(response);
     if (response.statusCode === 200) {
       ToastSuccess("İlan başarıyla silindi!");
       window.location.reload();

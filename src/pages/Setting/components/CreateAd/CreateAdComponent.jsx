@@ -43,11 +43,7 @@ const CreateAdComponent = () => {
         price: +price
       };
 
-      console.log(model)
-
       const response = await CreateAdService(model);
-
-      console.log(response);
       
       if(response.statusCode === 200){
         ToastSuccess("İlan başarıyla oluşturuldu!");

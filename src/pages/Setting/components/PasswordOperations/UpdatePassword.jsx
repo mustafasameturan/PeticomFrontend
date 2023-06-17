@@ -25,11 +25,7 @@ const UpdatePassword = () => {
       newPasswordAgain: newPasswordAgain
     };
 
-    console.log(model);
-
     const result = await UpdatePasswordService(model);
-
-    console.log(result);
 
     if(result.statusCode === 200){
       ToastSuccess("Şifreniz başarıyla güncellendi!");

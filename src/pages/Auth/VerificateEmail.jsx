@@ -20,7 +20,6 @@ const VerificateEmail = () => {
 
     const response = await VerificateEmailService(userId, verificationCode);
 
-    console.log(response);
     if(response.statusCode === 200){
         setLoading(loading => false);
         ToastDefault("E-Posta başarıyla doğrulandı!");

@@ -47,13 +47,13 @@
   
   .star-rating__input:checked + .star-rating__label,
   .star-rating__input:focus + .star-rating__label,
-  .star-rating__label:hover {
+  .star-rating__label:hover:not(.disabled) {
     background-image: url(../svg/stars/on.svg);
   }
   
-  .star-rating__label:hover ~ .star-rating__label {
+  .star-rating__label:hover:not(.disabled) ~ .star-rating__label {
     background-image: url(../svg/stars/off.svg);
-  }
+  } */
   
   .star-rating__input:focus ~ .star-rating__focus {
     position: absolute;
@@ -61,5 +61,5 @@
     right: -.25em;
     bottom: -.25em;
     left: -.25em;
-    outline: 0.25rem solid lightblue;
+    /* outline: 0.25rem solid lightblue; */
   }

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { GoogleIcon } from "../../assets/img";
 import { Input, Loading } from "../../components";
-import { handleCheckbox } from "../../components/Utility";
+import { handleCheckbox, validateEmail } from "../../components/Utility";
 import { RegisterService, SendVerificationCode } from "../../services/AuthService";
-import { ToastSuccess, ToastError, ToastDefault } from "../../components/Toastr";
+import { ToastSuccess, ToastError, ToastDefault, ToastInfo } from "../../components/Toastr";
 import classNames from "classnames";
 import "../../assets/css/register.css";
 import 'react-toastify/dist/ReactToastify.css';
@@ -30,22 +30,55 @@ const Register = () => {
 
   const submitHandle = async (e) => {
     e.preventDefault();
+    let valid = true;
 
-    const model = {
-      phoneNumber: phoneNumber,
-      fullName: name + " " + surname,
-      email: email,
-      password: password
-    };
-
-    const response = await RegisterService(model);
-
-    if(response.statusCode === 200){
-      setUserId(userId => response.data?.id);
-    } else {
-      setLoading(loading => false);
-      ToastError(response.error.errors[0]);
+    if(name.length === 0){
+      valid = false;
+      ToastInfo("Ad alanı boş geçilemez!");
     }
+    if(surname.length === 0){
+      valid = false;
+      ToastInfo("Soyad alanı boş geçilemez!");
+    }
+    if(email.length > 0 && !validateEmail(email)){
+      valid = false;
+      ToastError("E-Posta formatı hatalı!");
+    }
+    if(email.length === 0){
+      valid = false;
+      ToastInfo("E-Posta alanı boş geçilemez!")
+    }
+    if(phoneNumber.length === 0){
+      valid = false;
+      ToastInfo("Telefon Numarası alanı boş geçilemez!");
+    }
+    if(password.length === 0){
+      valid = false;
+      ToastInfo("Şifre alanı boş geçilemez!");
+    }
+    if(!acceptRights){
+      valid = false;
+      ToastInfo("Şartları kabul etmeniz gerekmektedir!");
+    }
+
+    if(valid){
+      const model = {
+        phoneNumber: phoneNumber,
+        fullName: name + " " + surname,
+        email: email,
+        password: password
+      };
+  
+      const response = await RegisterService(model);
+  
+      if(response.statusCode === 200){
+        setUserId(userId => response.data?.id);
+      } else {
+        ToastError(response.error.errors[0]);
+      }
+    }
+
+    setLoading(loading => false);
   }
 
   const sendVerificationCode = async (userId) => {
@@ -140,7 +173,7 @@ const Register = () => {
                         done
                       </span>
                     </label>
-                    <p className="cursor-pointer" onClick={() => { setModal(true); setModalContent( { element: "identity" } ); }}>Şartları kabul ediyorum.</p>
+                    <p className="cursor-pointer hover:text-white" onClick={() => { setModal(true); setModalContent( { element: "identity" } ); }}>Şartları kabul ediyorum.</p>
                   </label>
                 </div>
                 <button 

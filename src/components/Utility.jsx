@@ -48,3 +48,26 @@ export const ISOStringToDate2 = date => {
     let returnDate = ("0" + tmpDate.getDate()).slice(-2) + "." + ("0" + (tmpDate.getMonth() + 1)).slice(-2) + '.' + tmpDate.getFullYear()
     return returnDate
 }
+
+export const calculateDateDiff = (startDate, endDate) => {
+    const oneDayMilliseconds = 24 * 60 * 60 * 1000; // Value of one day in milliseconds
+  
+    // Convert the start and end dates to Date objects
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+  
+    // Calculate the number of days between the two dates
+    const days = Math.round(Math.abs((end - start) / oneDayMilliseconds));
+  
+    return days;
+}
+
+export const formatCurrency = (price) => {
+    const floatPrice = parseFloat(price);
+    const formattedAmount = new Intl.NumberFormat('tr-TR', {
+        style: 'currency',
+        currency: 'TRY',
+        minimumFractionDigits: 2,
+    }).format(floatPrice);
+    return formattedAmount;
+}
