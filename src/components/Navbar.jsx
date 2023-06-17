@@ -27,7 +27,16 @@ const Navbar = () => {
               <img src={UserPicture} className='cursor-pointer' onClick={() => {navigate(url("settings"))}}/>
             </>
           ) : (
-            <>
+            <div>
+              <div className='grid grid-col-2 gap1 block md:hidden'>
+                <div className='border-b border-gray-200 col-span-1' onClick={() => navigate(url("auth.login"))}>
+                  <h2 className='font-semibold text-xl text-white '>Giriş Yap</h2>
+                </div>
+                <div className='col-span-1' onClick={() => navigate(url("auth.register"))}>
+                  <h2 className='font-semibold text-xl text-white ' >Kayıt Ol</h2>
+                </div>
+              </div>
+            <div className='hidden md:block'>
               <button onClick={() => navigate(url("auth.register"))}>
                 <div className='button left'>
                   <p className='hover:text-orange'>Kayıt Ol</p>
@@ -38,7 +47,8 @@ const Navbar = () => {
                   <p className='hover:text-orange'>Giriş Yap</p>
                 </div>
               </button>          
-            </>
+            </div>
+            </div>
           )}
       
         </div>
