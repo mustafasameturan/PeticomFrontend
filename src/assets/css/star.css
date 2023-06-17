@@ -53,7 +53,7 @@
   
   .star-rating__label:hover:not(.disabled) ~ .star-rating__label {
     background-image: url(../svg/stars/off.svg);
-  } */
+  } 
   
   .star-rating__input:focus ~ .star-rating__focus {
     position: absolute;
