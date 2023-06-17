@@ -35,6 +35,8 @@ const AdList = () => {
     
     const result = await GetAdsByFilter(model);
 
+    console.log(result);
+
     if (result.statusCode === 200) {
       setAds((ads) => result.data.data);
       setTotalRecord(totalRecord => result.data.recordsTotal);

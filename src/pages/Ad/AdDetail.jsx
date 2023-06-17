@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../../assets/css/resultdetail.css";
-import { CatPhoto, Picture1, Picture2 } from "../../assets/img";
+import { CatPhoto, DefaultProfile, Picture1, Picture2 } from "../../assets/img";
 import { useNavigate, useParams } from "react-router-dom";
 import { url } from "../../routes/Utility";
 import useAuth from "../../hooks/useAuth";
@@ -105,7 +105,7 @@ const AdDetail = () => {
                 <div className="row-span-3 text-center">
                   <img
                     className="border-r-50 mx-auto !h-[200px] !w-[200px]"
-                    src={userInformation.imageUrl}
+                    src={userInformation.imageUrl.lenght > 0 ? userInformation.imageUrl : DefaultProfile}
                     alt=""
                   />
                   <h2 className="peticomer-name">{userInformation.fullName}</h2>
